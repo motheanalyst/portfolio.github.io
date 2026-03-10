@@ -1,0 +1,14 @@
+# Ignore temporary files
+.DS_Store
+Thumbs.db
+
+# Ignore Gemini / AI logs if present
+.gemini/
+.agents/
+.agent/
+_agents/
+_agent/
+
+# Windows specific
+Desktop.ini
+$RECYCLE.BIN/
