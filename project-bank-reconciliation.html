@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Reconciliation Pipeline | Mohammed Ezzahar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="grain-overlay"></div>
+
+    <header class="project-detail-hero">
+        <a href="index.html#projects" class="project-nav-back">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span data-i18n="back_to_projects">Back to Projects</span>
+        </a>
+        <div class="hero-bg">
+            <img src="cinematic_wide_2.png" alt="Bank Pipeline">
+        </div>
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-container">
+            <div class="hero-text">
+                <div class="eyebrow detail-eyebrow" data-i18n="proj_1_eyebrow">ACCOUNTING · AUTOMATION</div>
+                <h1 class="detail-title" data-i18n="proj_1_title">Bank Reconciliation Pipeline</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="container project-detail-content">
+        <div class="detail-main">
+            <div class="detail-text">
+                <p data-i18n="proj_1_long_p1">Manual bank reconciliation is slow and error-prone. This project involved building an automated ETL pipeline using Python to match transactions between bank statements and internal accounting records.</p>
+                
+                <h3 data-i18n="detail_h_challenge">The Challenge</h3>
+                <p data-i18n="proj_1_challenge">Processing thousands of transactions across multiple bank accounts manually was creating a bottleneck during monthly closings. Inconsistent descriptions and date offsets further complicated the matching process.</p>
+
+                <h3 data-i18n="detail_h_solution">The Solution</h3>
+                <p data-i18n="proj_1_solution">We developed a custom matching algorithm that uses fuzzy logic for description similarity and dynamic date windows for transaction pairing. This automated 80% of the verification process, allowing accountants to focus only on high-risk discrepancies.</p>
+            </div>
+
+            <div class="project-gallery">
+                <div class="gallery-img"><img src="cinematic_wide_3.png" alt="Pipeline Logic"></div>
+                <div class="gallery-img"><img src="cinematic_1_wallstreet.png" alt="Dashboard View"></div>
+            </div>
+        </div>
+
+        <aside class="detail-sidebar">
+            <div class="tech-stack-grid">
+                <div class="tech-item">
+                    <h5 data-i18n="detail_role">Role</h5>
+                    <p data-i18n="proj_1_role">Automation Engineer</p>
+                </div>
+                <div class="tech-item">
+                    <h5 data-i18n="detail_tech">Tech Stack</h5>
+                    <p>Python (Pandas), SQL</p>
+                </div>
+                <div class="tech-item">
+                    <h5 data-i18n="detail_impact">Impact</h5>
+                    <p data-i18n="proj_1_impact">80% Manual Reduction</p>
+                </div>
+                <div class="tech-item">
+                    <h5 data-i18n="detail_year">Year</h5>
+                    <p>2023</p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <section class="cta-banner">
+        <div class="container cta-content">
+            <h2 class="fade-up" data-i18n="cta_h2">Let's Build the <em>Future of Finance</em></h2>
+            <a href="index.html#contact" class="view-arch" style="justify-content: center;" data-i18n="nav_contact">05 Contact</a>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
