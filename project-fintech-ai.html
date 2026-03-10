@@ -36,44 +36,107 @@
 
     <main class="container project-detail-content">
         <div class="detail-main">
+            <!-- Project Specs Grid -->
+            <div class="project-specs fade-up">
+                <div class="spec-block">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span class="spec-label" data-i18n="detail_role">Role</span>
+                    <span class="spec-value" data-i18n="proj_f_role">Lead Developer & Analyst</span>
+                </div>
+                <div class="spec-block">
+                    <i class="fa-solid fa-microchip"></i>
+                    <span class="spec-label" data-i18n="detail_tech">Tech Stack</span>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">TensorFlow</span>
+                        <span class="tech-badge">PostgreSQL</span>
+                        <span class="tech-badge">AWS</span>
+                    </div>
+                </div>
+                <div class="spec-block">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span class="spec-label" data-i18n="detail_impact">Impact</span>
+                    <span class="spec-value" data-i18n="proj_f_impact">40% Efficiency Gain</span>
+                </div>
+            </div>
+
             <div class="detail-text">
                 <p data-i18n="proj_f_long_p1">This mission-critical platform was engineered to handle high-velocity financial data, applying advanced machine learning models to identify risk patterns and optimize asset allocation in real-time.</p>
                 
                 <h3 data-i18n="detail_h_challenge">The Challenge</h3>
                 <p data-i18n="proj_f_challenge">Financial institutions often struggle with fragmented data and delayed risk signals. The objective was to build a unified engine that could ingest multi-channel data and provide actionable intelligence within milliseconds.</p>
 
+                <!-- Video Demonstration Frame -->
+                <div class="video-frame fade-up">
+                    <!-- Placeholder image/poster for the video -->
+                    <img src="cinematic_wide_1.png" alt="System Demonstration Preview">
+                    <!-- <video autoplay muted loop playsinline src="project-demo.mp4"></video> -->
+                </div>
+
                 <h3 data-i18n="detail_h_solution">The Solution</h3>
                 <p data-i18n="proj_f_solution">We deployed a series of neural networks specialized in time-series forecasting and anomaly detection. By integrating these models directly into the data pipeline, the system achieved a significant reduction in false positives and improved decision accuracy by 35%.</p>
+
+                <h3 data-i18n="detail_h_methodology">Methodology</h3>
+                <div class="methodology-timeline">
+                    <div class="method-step fade-up">
+                        <h4 data-i18n="method_1_h">Discovery & Data Audit</h4>
+                        <p data-i18n="method_1_p">Identified critical data bottlenecks and mapped the fragmented infrastructure of legacy financial systems.</p>
+                    </div>
+                    <div class="method-step fade-up">
+                        <h4 data-i18n="method_2_h">Model Engineering</h4>
+                        <p data-i18n="method_2_p">Developed and stress-tested various LSTM and Transformer architectures tailored for time-series volatility.</p>
+                    </div>
+                    <div class="method-step fade-up">
+                        <h4 data-i18n="method_3_h">Pipeline Integration</h4>
+                        <p data-i18n="method_3_p">Built high-concurrency ETL processes to feed real-time data into the live inference engine.</p>
+                    </div>
+                </div>
             </div>
 
             <div class="project-gallery">
-                <div class="gallery-img"><img src="cinematic_wide_1.png" alt="Analytics Dashboard"></div>
-                <div class="gallery-img"><img src="cinematic_wide_2.png" alt="System Architecture"></div>
+                <div class="gallery-img fade-up"><img src="cinematic_wide_1.png" alt="Analytics Dashboard"></div>
+                <div class="gallery-img fade-up"><img src="cinematic_wide_2.png" alt="System Architecture"></div>
             </div>
+
+            <!-- Conclusion & CTA -->
+            <section class="project-conclusion fade-up">
+                <h2 class="conclusion-title" data-i18n="detail_h_conclusion">Project Conclusion</h2>
+                <p class="text-mid" data-i18n="proj_f_conclusion">The platform now serves as the backbone for strategic asset allocation, proving that AI-driven risk signals can fundamentally transform institutional decision-making.</p>
+                <div class="source-actions">
+                    <a href="https://github.com/motheanalyst" class="btn-premium">
+                        <i class="fa-brands fa-github"></i>
+                        <span>View Source Code</span>
+                    </a>
+                    <a href="index.html#contact" class="btn-premium">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>Discuss Implementation</span>
+                    </a>
+                </div>
+            </section>
         </div>
 
         <aside class="detail-sidebar">
             <div class="tech-stack-grid">
-                <span class="sidebar-heading" data-i18n="detail_tech">Tech Stack</span>
+                <span class="sidebar-heading" data-i18n="detail_tools">Tools & Environment</span>
                 <div class="tech-item">
-                    <i class="fa-solid fa-briefcase"></i>
-                    <h5 data-i18n="detail_role">Role</h5>
-                    <p data-i18n="proj_f_role">Lead Developer & Analyst</p>
+                    <i class="fa-brands fa-python"></i>
+                    <h5>Python & Analytics</h5>
+                    <p>Pandas, NumPy, Scikit-learn</p>
                 </div>
                 <div class="tech-item">
-                    <i class="fa-solid fa-microchip"></i>
-                    <h5 data-i18n="detail_tech">Tech Stack</h5>
-                    <p>Python, TensorFlow, SQL</p>
+                    <i class="fa-solid fa-brain"></i>
+                    <h5>AI Frameworks</h5>
+                    <p>TensorFlow, Keras, PyTorch</p>
                 </div>
                 <div class="tech-item">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <h5 data-i18n="detail_impact">Impact</h5>
-                    <p data-i18n="proj_f_impact">40% Efficiency Gain</p>
+                    <i class="fa-solid fa-database"></i>
+                    <h5>Data Storage</h5>
+                    <p>PostgreSQL, Redis</p>
                 </div>
                 <div class="tech-item">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    <h5 data-i18n="detail_year">Year</h5>
-                    <p>2023</p>
+                    <i class="fa-solid fa-cloud"></i>
+                    <h5>Deployment</h5>
+                    <p>Docker, AWS EC2, S3</p>
                 </div>
             </div>
         </aside>

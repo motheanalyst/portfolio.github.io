@@ -36,44 +36,96 @@
 
     <main class="container project-detail-content">
         <div class="detail-main">
+            <!-- Project Specs Grid -->
+            <div class="project-specs fade-up">
+                <div class="spec-block">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <span class="spec-label" data-i18n="detail_role">Role</span>
+                    <span class="spec-value" data-i18n="proj_4_role">Lead AI Developer</span>
+                </div>
+                <div class="spec-block">
+                    <i class="fa-solid fa-microchip"></i>
+                    <span class="spec-label" data-i18n="detail_tech">Tech Stack</span>
+                    <div class="tech-badges">
+                        <span class="tech-badge">TensorFlow</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">FAISS</span>
+                        <span class="tech-badge">GCP</span>
+                    </div>
+                </div>
+                <div class="spec-block">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span class="spec-label" data-i18n="detail_impact">Impact</span>
+                    <span class="spec-value" data-i18n="proj_4_impact">Enhanced Personalization</span>
+                </div>
+            </div>
+
             <div class="detail-text">
                 <p data-i18n="proj_4_long_p1">This multi-vector recommendation engine was built to match customers with high-end financial products based on their behavioral data and financial history.</p>
                 
                 <h3 data-i18n="detail_h_challenge">The Challenge</h3>
                 <p data-i18n="proj_4_challenge">Traditional recommendation schemes are often too rigid for the nuanced needs of financial clients. The problem was to capture hidden relationships between risk tolerance, spending habits, and long-term goals.</p>
 
+                <!-- System Diagram Frame -->
+                <div class="video-frame fade-up">
+                    <img src="cinematic_wide_1.png" alt="Recommender Architecture Preview">
+                </div>
+
                 <h3 data-i18n="detail_h_solution">The Solution</h3>
                 <p data-i18n="proj_4_solution">I developed an architecture based on deep embedding networks, projecting users and products into the same latent space. This allowed the system to perform real-time similarity searches, delivering highly personalized product suggestions.</p>
+
+                <h3 data-i18n="detail_h_methodology">Methodology</h3>
+                <div class="methodology-timeline">
+                    <div class="method-step fade-up">
+                        <h4 data-i18n="method_1_h_4">Embedding Design</h4>
+                        <p data-i18n="method_1_p_4">Built an auto-encoder architecture to compress high-dimensional user features into dense representation vectors.</p>
+                    </div>
+                    <div class="method-step fade-up">
+                        <h4 data-i18n="method_2_h_4">Vector Search Integration</h4>
+                        <p data-i18n="method_2_p_4">Implemented FAISS for sub-millisecond similarity lookups across a library of thousands of financial products.</p>
+                    </div>
+                    <div class="method-step fade-up">
+                        <h4 data-i18n="method_3_h_4">A/B Validation</h4>
+                        <p data-i18n="method_3_p_4">Conducted extensive testing against baseline collaborative filtering models, achieving a 20% higher conversion rate.</p>
+                    </div>
+                </div>
             </div>
 
             <div class="project-gallery">
-                <div class="gallery-img"><img src="cinematic_wide_1.png" alt="System Analysis"></div>
-                <div class="gallery-img"><img src="cinematic_wide_2.png" alt="User Vectorization"></div>
+                <div class="gallery-img fade-up"><img src="cinematic_wide_1.png" alt="System Analysis"></div>
+                <div class="gallery-img fade-up"><img src="cinematic_wide_2.png" alt="User Vectorization"></div>
             </div>
+
+            <!-- Conclusion & CTA -->
+            <section class="project-conclusion fade-up">
+                <h2 class="conclusion-title" data-i18n="detail_h_conclusion">Project Conclusion</h2>
+                <p class="text-mid" data-i18n="proj_4_conclusion">The deep recommender system has fundamentally improved customer engagement, demonstrating the power of latent space modeling in product discovery.</p>
+                <div class="source-actions">
+                    <a href="https://github.com/motheanalyst" class="btn-premium">
+                        <i class="fa-brands fa-github"></i>
+                        <span>View Source Code</span>
+                    </a>
+                </div>
+            </section>
         </div>
 
         <aside class="detail-sidebar">
             <div class="tech-stack-grid">
-                <span class="sidebar-heading" data-i18n="detail_tech">Tech Stack</span>
+                <span class="sidebar-heading" data-i18n="detail_tools">Research Tools</span>
                 <div class="tech-item">
-                    <i class="fa-solid fa-briefcase"></i>
-                    <h5 data-i18n="detail_role">Role</h5>
-                    <p data-i18n="proj_4_role">Lead AI Developer</p>
+                    <i class="fa-solid fa-brain"></i>
+                    <h5>Deep Learning</h5>
+                    <p>TensorFlow, Keras, Embedding Layers</p>
                 </div>
                 <div class="tech-item">
-                    <i class="fa-solid fa-microchip"></i>
-                    <h5 data-i18n="detail_tech">Tech Stack</h5>
-                    <p>TensorFlow, Python, Scikit-learn</p>
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <h5>Vector Search</h5>
+                    <p>FAISS, Pinecone integration</p>
                 </div>
                 <div class="tech-item">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <h5 data-i18n="detail_impact">Impact</h5>
-                    <p data-i18n="proj_4_impact">Enhanced Personalization</p>
-                </div>
-                <div class="tech-item">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    <h5 data-i18n="detail_year">Year</h5>
-                    <p>2023</p>
+                    <i class="fa-solid fa-cloud"></i>
+                    <h5>Infrastructure</h5>
+                    <p>Google Cloud Platform, Vertex AI</p>
                 </div>
             </div>
         </aside>

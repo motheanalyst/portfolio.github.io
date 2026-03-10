@@ -36,44 +36,96 @@
 
     <main class="container project-detail-content">
         <div class="detail-main">
+            <!-- Project Specs Grid -->
+            <div class="project-specs fade-up">
+                <div class="spec-block">
+                    <i class="fa-solid fa-gears"></i>
+                    <span class="spec-label" data-i18n="detail_role">Role</span>
+                    <span class="spec-value" data-i18n="proj_1_role">Automation Engineer</span>
+                </div>
+                <div class="spec-block">
+                    <i class="fa-solid fa-microchip"></i>
+                    <span class="spec-label" data-i18n="detail_tech">Tech Stack</span>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Pandas</span>
+                        <span class="tech-badge">SQL</span>
+                        <span class="tech-badge">Excel VBA</span>
+                    </div>
+                </div>
+                <div class="spec-block">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span class="spec-label" data-i18n="detail_impact">Impact</span>
+                    <span class="spec-value" data-i18n="proj_1_impact">80% Manual Reduction</span>
+                </div>
+            </div>
+
             <div class="detail-text">
                 <p data-i18n="proj_1_long_p1">Manual bank reconciliation is slow and error-prone. This project involved building an automated ETL pipeline using Python to match transactions between bank statements and internal accounting records.</p>
                 
                 <h3 data-i18n="detail_h_challenge">The Challenge</h3>
                 <p data-i18n="proj_1_challenge">Processing thousands of transactions across multiple bank accounts manually was creating a bottleneck during monthly closings. Inconsistent descriptions and date offsets further complicated the matching process.</p>
 
+                <!-- Video Demonstration Frame -->
+                <div class="video-frame fade-up">
+                    <img src="cinematic_wide_3.png" alt="Pipeline Demonstration Preview">
+                </div>
+
                 <h3 data-i18n="detail_h_solution">The Solution</h3>
                 <p data-i18n="proj_1_solution">We developed a custom matching algorithm that uses fuzzy logic for description similarity and dynamic date windows for transaction pairing. This automated 80% of the verification process, allowing accountants to focus only on high-risk discrepancies.</p>
+
+                <h3 data-i18n="detail_h_methodology">Methodology</h3>
+                <div class="methodology-timeline">
+                    <div class="method-step fade-up">
+                        <h4 data-i18n="method_1_h_1">Data Extraction</h4>
+                        <p data-i18n="method_1_p_1">Automated the retrieval of statements from various banking APIs and PDF formats into a unified CSV/SQL structure.</p>
+                    </div>
+                    <div class="method-step fade-up">
+                        <h4 data-i18n="method_2_h_1">Fuzzy Matching Logic</h4>
+                        <p data-i18n="method_2_p_1">Implemented Levenshtein distance algorithms to match slightly varied transaction descriptions between internal and external records.</p>
+                    </div>
+                    <div class="method-step fade-up">
+                        <h4 data-i18n="method_3_h_1">Exception Reporting</h4>
+                        <p data-i18n="method_3_p_1">Developed a dashboard to isolate unmatched entries for manual review, significantly speeding up the audit cycle.</p>
+                    </div>
+                </div>
             </div>
 
             <div class="project-gallery">
-                <div class="gallery-img"><img src="cinematic_wide_3.png" alt="Pipeline Logic"></div>
-                <div class="gallery-img"><img src="cinematic_1_wallstreet.png" alt="Dashboard View"></div>
+                <div class="gallery-img fade-up"><img src="cinematic_wide_3.png" alt="Pipeline Logic"></div>
+                <div class="gallery-img fade-up"><img src="cinematic_1_wallstreet.png" alt="Dashboard View"></div>
             </div>
+
+            <!-- Conclusion & CTA -->
+            <section class="project-conclusion fade-up">
+                <h2 class="conclusion-title" data-i18n="detail_h_conclusion">Project Conclusion</h2>
+                <p class="text-mid" data-i18n="proj_1_conclusion">The automated pipeline has transformed the finance department's monthly closing process, proving that Python automation is a critical asset for modern accounting.</p>
+                <div class="source-actions">
+                    <a href="https://github.com/motheanalyst" class="btn-premium">
+                        <i class="fa-brands fa-github"></i>
+                        <span>View Source Code</span>
+                    </a>
+                </div>
+            </section>
         </div>
 
         <aside class="detail-sidebar">
             <div class="tech-stack-grid">
-                <span class="sidebar-heading" data-i18n="detail_tech">Tech Stack</span>
+                <span class="sidebar-heading" data-i18n="detail_tools">Tools & Environment</span>
                 <div class="tech-item">
-                    <i class="fa-solid fa-briefcase"></i>
-                    <h5 data-i18n="detail_role">Role</h5>
-                    <p data-i18n="proj_1_role">Automation Engineer</p>
+                    <i class="fa-brands fa-python"></i>
+                    <h5>Python Automation</h5>
+                    <p>Pandas, FuzzyWuzzy, Openpyxl</p>
                 </div>
                 <div class="tech-item">
-                    <i class="fa-solid fa-microchip"></i>
-                    <h5 data-i18n="detail_tech">Tech Stack</h5>
-                    <p>Python (Pandas), SQL</p>
+                    <i class="fa-solid fa-database"></i>
+                    <h5>SQL Database</h5>
+                    <p>SQLite, PostgreSQL Integration</p>
                 </div>
                 <div class="tech-item">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <h5 data-i18n="detail_impact">Impact</h5>
-                    <p data-i18n="proj_1_impact">80% Manual Reduction</p>
-                </div>
-                <div class="tech-item">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    <h5 data-i18n="detail_year">Year</h5>
-                    <p>2023</p>
+                    <i class="fa-solid fa-file-excel"></i>
+                    <h5>Legacy Integration</h5>
+                    <p>Excel VBA, Pivot Automation</p>
                 </div>
             </div>
         </aside>

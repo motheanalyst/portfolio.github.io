@@ -36,44 +36,96 @@
 
     <main class="container project-detail-content">
         <div class="detail-main">
+            <!-- Project Specs Grid -->
+            <div class="project-specs fade-up">
+                <div class="spec-block">
+                    <i class="fa-solid fa-robot"></i>
+                    <span class="spec-label" data-i18n="detail_role">Role</span>
+                    <span class="spec-value" data-i18n="proj_2_role">AI Researcher</span>
+                </div>
+                <div class="spec-block">
+                    <i class="fa-solid fa-microchip"></i>
+                    <span class="spec-label" data-i18n="detail_tech">Tech Stack</span>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">NLP</span>
+                        <span class="tech-badge">Transformers</span>
+                        <span class="tech-badge">PyTorch</span>
+                    </div>
+                </div>
+                <div class="spec-block">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span class="spec-label" data-i18n="detail_impact">Impact</span>
+                    <span class="spec-value" data-i18n="proj_2_impact">Automated News Analysis</span>
+                </div>
+            </div>
+
             <div class="detail-text">
                 <p data-i18n="proj_2_long_p1">This AI bot monitors financial news and social media sentiment in real-time, using Natural Language Processing (NLP) to gauge potential market movements.</p>
                 
                 <h3 data-i18n="detail_h_challenge">The Challenge</h3>
                 <p data-i18n="proj_2_challenge">Massive volumes of financial news are published every second. Traders cannot process this manually to identify sentiment shifts that might impact asset prices.</p>
 
+                <!-- Video Demonstration Frame -->
+                <div class="video-frame fade-up">
+                    <img src="cinematic_wide_1.png" alt="Sentiment Bot Preview">
+                </div>
+
                 <h3 data-i18n="detail_h_solution">The Solution</h3>
                 <p data-i18n="proj_2_solution">We built an NLP pipeline using transformer models to categorize news into bullish, bearish, or neutral sentiments. The system then aggregates these signals per asset, providing a sentiment score that correlates with short-term price volatility.</p>
+
+                <h3 data-i18n="detail_h_methodology">Methodology</h3>
+                <div class="methodology-timeline">
+                    <div class="method-step fade-up">
+                        <h4 data-i18n="method_1_h_2">News Ingestion</h4>
+                        <p data-i18n="method_1_p_2">Designed a real-time scraper for Reuters, Bloomberg, and Twitter using asynchronous Python requests.</p>
+                    </div>
+                    <div class="method-step fade-up">
+                        <h4 data-i18n="method_2_h_2">NLP Classification</h4>
+                        <p data-i18n="method_2_p_2">Fine-tuned a FinBERT model to accurately detect financial nuances and sentiment polarities in news headlines.</p>
+                    </div>
+                    <div class="method-step fade-up">
+                        <h4 data-i18n="method_3_h_2">Signal Generation</h4>
+                        <p data-i18n="method_3_p_2">Calculated weighted moving averages of sentiment scores to provide trading signals for specific asset classes.</p>
+                    </div>
+                </div>
             </div>
 
             <div class="project-gallery">
-                <div class="gallery-img"><img src="cinematic_wide_1.png" alt="Bot Logic"></div>
-                <div class="gallery-img"><img src="cinematic_3_boardroom.png" alt="Trading Analysis"></div>
+                <div class="gallery-img fade-up"><img src="cinematic_wide_1.png" alt="Bot Logic"></div>
+                <div class="gallery-img fade-up"><img src="cinematic_3_boardroom.png" alt="Trading Analysis"></div>
             </div>
+
+            <!-- Conclusion & CTA -->
+            <section class="project-conclusion fade-up">
+                <h2 class="conclusion-title" data-i18n="detail_h_conclusion">Project Conclusion</h2>
+                <p class="text-mid" data-i18n="proj_2_conclusion">The bot successfully automates the first layer of market sentiment analysis, allowing for faster reaction times in algorithmic trading strategies.</p>
+                <div class="source-actions">
+                    <a href="https://github.com/motheanalyst" class="btn-premium">
+                        <i class="fa-brands fa-github"></i>
+                        <span>View Source Code</span>
+                    </a>
+                </div>
+            </section>
         </div>
 
         <aside class="detail-sidebar">
             <div class="tech-stack-grid">
-                <span class="sidebar-heading" data-i18n="detail_tech">Tech Stack</span>
+                <span class="sidebar-heading" data-i18n="detail_tools">Tools & Environment</span>
                 <div class="tech-item">
-                    <i class="fa-solid fa-briefcase"></i>
-                    <h5 data-i18n="detail_role">Role</h5>
-                    <p data-i18n="proj_2_role">AI Researcher</p>
+                    <i class="fa-brands fa-python"></i>
+                    <h5>NLP Pipeline</h5>
+                    <p>HuggingFace, NLTK, Spacy</p>
                 </div>
                 <div class="tech-item">
-                    <i class="fa-solid fa-microchip"></i>
-                    <h5 data-i18n="detail_tech">Tech Stack</h5>
-                    <p>NLP, Python, PyTorch</p>
+                    <i class="fa-solid fa-bolt"></i>
+                    <h5>Real-time Processing</h5>
+                    <p>FastAPI, Celery, RabbitMQ</p>
                 </div>
                 <div class="tech-item">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <h5 data-i18n="detail_impact">Impact</h5>
-                    <p data-i18n="proj_2_impact">Automated News Analysis</p>
-                </div>
-                <div class="tech-item">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    <h5 data-i18n="detail_year">Year</h5>
-                    <p>2024</p>
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <h5>Visualization</h5>
+                    <p>Plotly, Streamlit Dashboard</p>
                 </div>
             </div>
         </aside>
