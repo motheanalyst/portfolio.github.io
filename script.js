@@ -438,4 +438,34 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize from local storage
     const savedLang = localStorage.getItem('preferred_lang') || 'en';
     switchLanguage(savedLang);
+
+    // --- Project Page Interactivity ---
+    
+    // Parallax Effect for Hero
+    const heroBg = document.querySelector('.project-detail-hero .hero-bg');
+    if (heroBg) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            heroBg.style.transform = `translateY(${scrolled * 0.4}px)`;
+        });
+    }
+
+    // Scroll Reveal for Gallery and Sections
+    const revealElements = document.querySelectorAll('.gallery-img, .detail-text h3, .tech-item');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        revealObserver.observe(el);
+    });
 });
