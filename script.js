@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Global Fade-up Reveal (Intersection Observer)
     const revealOptions = {
@@ -184,7 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
             skill_comm: "Strategic Communication",
             cta_h2: "Let's Build the <em>Future of Finance</em>",
             cta_p: "Open for collaborations in Data Engineering, Financial Analysis, and AI Research.",
-            cta_location: "Meknès,            back_to_projects: "Back to Projects",
+            cta_location: "Meknès, Morocco",
+            back_to_projects: "Back to Projects",
             detail_h_challenge: "The Challenge",
             detail_h_solution: "The Solution",
             detail_h_methodology: "Methodology",
@@ -243,8 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
             method_2_h_4: "Vector Search Integration",
             method_2_p_4: "Implemented FAISS for similarity lookups...",
             method_3_h_4: "A/B Validation",
-            method_3_p_4: "Tested against collaborative filtering baselines..."
-        },n"
+            method_3_p_4: "Tested against collaborative filtering baselines, achieving a 20% higher conversion rate."
         },
         fr: {
             nav_about: "01 À propos",
@@ -374,7 +374,8 @@ document.addEventListener('DOMContentLoaded', () => {
             proj_f_p: "منصة شاملة لإدارة المخاطر مخصصة لنشر الذكاء الاصطناعي لإدارة الأصول في الوقت الفعلي وتحليل البيانات التلقائي.",
             proj_1_eyebrow: "المحاسبة · الأتمتة",
             proj_1_title: "مسار مطابقة الحسابات البنكية",
-            proj_1_p: "نظام مطابقة مؤتمت يقلل من التحقق اليدوي بنسبة 80٪ باستخدام منطق             back_to_projects: "العودة للمشاريع ←",
+            proj_1_p: "نظام مطابقة مؤتمت يقلل من التحقق اليدوي بنسبة 80٪ باستخدام منطق جافا سكريبت المخصص.",
+            back_to_projects: "العودة للمشاريع",
             detail_h_challenge: "التحدي",
             detail_h_solution: "الحل",
             detail_h_methodology: "المنهجية",
@@ -403,38 +404,8 @@ document.addEventListener('DOMContentLoaded', () => {
             method_2_h_1: "منطق المطابقة الضبابي",
             method_2_p_1: "تنفيذ خوارزميات مسافة ليفنشتاين...",
             method_3_h_1: "تقارير الاستثناءات",
-            method_3_p_1: "تطوير لوحة تحكم لعزل الإدخالات غير المتطابقة...",
-            proj_2_long_p1: "يقوم هذا البوت المدعوم بالذكاء الاصطناعي بمراقبة الأخبار المالية...",
-            proj_2_challenge: "يتم نشر كميات هائلة من الأخبار المالية كل ثانية...",
-            proj_2_solution: "قمنا ببناء خط معالجة NLP باستخدام نماذج المحولات...",
-            proj_2_conclusion: "يؤتمت البوت بنجاح الطبقة الأولى من تحليل مشاعر السوق...",
-            method_1_h_2: "استيعاب الأخبار",
-            method_1_p_2: "تصميم أداة سحب الأخبار في الوقت الفعلي من رويترز وتويتر...",
-            method_2_h_2: "تصنيف NLP",
-            method_2_p_2: "ضبط نموذج FinBERT لاكتشاف الفوارق المالية الدقيقة...",
-            method_3_h_2: "توليد الإشارات",
-            method_3_p_2: "حساب درجات المشاعر المرجحة لتوفير إشارات التداول...",
-            proj_3_long_p1: "تحلل هذه الدراسة الشاملة المنظومة الضريبية للشركات في المغرب...",
-            proj_3_challenge: "يعد التنقل في القوانين الضريبية المغربية أمراً معقداً...",
-            proj_3_solution: "قمت بتطوير إطار عمل تشخيصي يقيم السيناريوهات الضريبية...",
-            proj_3_conclusion: "خدمت الدراسة كمرجع رئيسي للتخطيط الضريبي المؤسسي...",
-            method_1_h_3: "التحليل السياقي",
-            method_1_p_3: "رسم خرائط الإصلاحات في قانون المالية المغربي...",
-            method_2_h_3: "تحديد المخاطر كمياً",
-            method_2_p_3: "نمذجة الالتزامات الضريبية المحتملة باستخدام Excel...",
-            method_3_h_3: "خارطة الطريق الاستراتيجية",
-            method_3_p_3: "تقديم إجراءات الامتثال ذات الأولوية...",
-            proj_4_long_p1: "تم بناء محرك التوصية هذا لمطابقة العملاء مع المنتجات المالية...",
-            proj_4_challenge: "غالباً ما تكون مخططات التوصية التقليدية جامدة للغاية...",
-            proj_4_solution: "قمت بتطوير بنية تعتمد على شبكات التضمين العميق...",
-            proj_4_conclusion: "حسن نظام التوصية العميق بشكل أساسي مشاركة العملاء...",
-            method_1_h_4: "تصميم التضمين",
-            method_1_p_4: "بناء هندسة التشفير التلقائي لضغط خصائص المستخدم...",
-            method_2_h_4: "تكامل البحث المتجهي",
-            method_2_p_4: "تنفيذ FAISS لعمليات البحث عن التشابه...",
-            method_3_h_4: "التحقق من صحة A/B",
-            method_3_p_4: "الاختبار مقابل نماذج التصفية التعاونية الأساسية..."
-        },j_1_long_p1: "تعد مطابقة الحسابات البنكية اليدوية بطيئة وعرضة للأخطاء. تضمن هذا المشروع بناء تدفق ETL مؤتمت باستخدام بايثون لمطابقة المعاملات بين الكشوف البنكية والسجلات المحاسبية الداخلية.",
+            method_3_p_1: "تطوير لوحة تحكم لعزل الإدخالات غير المطابقة...",
+            proj_1_long_p1: "تعد مطابقة الحسابات البنكية اليدوية بطيئة وعرضة للأخطاء. تضمن هذا المشروع بناء تدفق ETL مؤتمت باستخدام بايثون لمطابقة المعاملات بين الكشوف البنكية والسجلات المحاسبية الداخلية.",
             proj_1_challenge: "كانت معالجة آلاف المعاملات عبر حسابات بنكية متعددة يدوياً تخلق عائقاً أثناء الإغلاق الشهري. زاد عدم تناسق الأوصاف وفروق التواريخ من تعقيد عملية المطابقة.",
             proj_1_solution: "قمنا بتطوير خوارزمية مطابقة مخصصة تستخدم المنطق الضبابي لتشابه الأوصاف ونوافذ زمنية ديناميكية لازدواج المعاملات. أدى ذلك إلى أتمتة 80٪ من عملية التحقق.",
             proj_1_role: "مهندس أتمتة",
@@ -454,7 +425,6 @@ document.addEventListener('DOMContentLoaded', () => {
             proj_4_solution: "قمت بتطوير بنية تعتمد على شبكات التضمين العميق، لعرض المستخدمين والمنتجات في نفس المساحة الكامنة. أدى هذا إلى تمكين عمليات البحث عن التشابه في الوقت الفعلي.",
             proj_4_role: "مطور ذكاء اصطناعي رئيسي",
             proj_4_impact: "تعزيز التخصيص الشخصي"
-
         }
     };
 
