@@ -279,7 +279,7 @@ h2 em {
 .hero-job-eyebrow {
     font-family: var(--font-tech);
     font-size: 0.85rem;
-    color: #CBD5E1;
+    color: #7599c4;
     text-transform: uppercase;
     letter-spacing: 0.4em;
     margin-bottom: 1rem;
@@ -455,7 +455,8 @@ h2 em {
 /* About Section Transformation (Full-Bleed) */
 .about-full-bleed {
     position: relative;
-    padding: 160px 0; /* Increased padding for impact */
+    padding: 160px 0;
+    /* Increased padding for impact */
     background: #000;
     overflow: hidden;
     display: flex;
@@ -475,7 +476,8 @@ h2 em {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.5; /* Balanced opacity for background feel */
+    opacity: 0.5;
+    /* Balanced opacity for background feel */
     filter: saturate(0.8) contrast(1.1);
 }
 
@@ -485,12 +487,10 @@ h2 em {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        90deg, 
-        rgba(8, 9, 15, 0.95) 0%, 
-        rgba(8, 9, 15, 0.8) 40%, 
-        transparent 100%
-    );
+    background: linear-gradient(90deg,
+            rgba(8, 9, 15, 0.9) 0%,
+            rgba(8, 9, 15, 0.6) 50%,
+            rgba(8, 9, 15, 0.3) 100%);
     z-index: 1;
 }
 
@@ -501,29 +501,25 @@ h2 em {
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 80px;
+    grid-template-columns: 1.2fr 1fr; /* Shifted weight to text */
+    gap: 60px;
     align-items: center;
 }
 
-.about-spacer {
-    /* Empty div to maintain grid structure */
-}
+
 
 @media (max-width: 992px) {
     .about-grid {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    
+
     .about-overlay {
-        background: linear-gradient(
-            to bottom,
-            rgba(8, 9, 15, 0.9) 0%,
-            rgba(8, 9, 15, 0.7) 100%
-        );
+        background: linear-gradient(to bottom,
+                rgba(8, 9, 15, 0.9) 0%,
+                rgba(8, 9, 15, 0.7) 100%);
     }
-    
+
     .about-spacer {
         display: none;
     }
@@ -1211,7 +1207,7 @@ h2 em {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     border-bottom: none;
-    z-index: 100;
+    z-index: 10001;
 }
 
 .nav-pill-container {
