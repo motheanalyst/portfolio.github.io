@@ -1283,10 +1283,12 @@ h2 em {
     position: relative;
     height: 100%;
 }
-
-
-
-
+@media (max-width: 768px) {
+    .nav-pill-container {
+        justify-content: flex-start;
+        padding: 0 16px;
+    }
+}
 
 
 
@@ -2487,6 +2489,11 @@ h2 em {
 
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+
+    .nav-pill-container {
+        padding: 0 16px;
+        justify-content: flex-start;
     }
 }
 
