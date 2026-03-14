@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Global Fade-up Reveal (Intersection Observer)
     const revealOptions = {
@@ -99,6 +99,23 @@
         });
     }
 
+    // Close mobile menu when a mobile link is clicked
+    document.querySelectorAll('.mobile-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (burger && mobileMenu) {
+                mobileMenu.classList.remove('open');
+                burger.classList.remove('open');
+                burger.setAttribute('aria-expanded', 'false');
+                mobileMenu.setAttribute('aria-hidden', 'true');
+            }
+        });
+    });
+
+    // Stagger skill group entrance animation
+    document.querySelectorAll('.skill-group-v2').forEach((group, i) => {
+        group.style.transitionDelay = `${i * 0.1}s`;
+    });
+
     // Scroll Progress & Active Links
 
     // Active Link Highlighting (Intersection Observer)
@@ -127,9 +144,10 @@
     const translations = {
         en: {
             nav_about: "01 About",
-            nav_experience: "02 Experience",
+            nav_experience: "02 Methodology",
             nav_projects: "03 Projects",
             nav_skills: "04 Skills",
+            nav_contact: "05 Contact",
             hero_name_first: "MOHAMMED",
             hero_name_last: "EZZAHAR",
             hero_eyebrow: "Financial & Data Analyst",
@@ -171,17 +189,20 @@
             proj_4_title: "Deep Recommender System",
             proj_4_p: "Multi-vector recommendation engine for personalized financial product matching.",
             proj_view_arch: "Review Architecture →",
+            skills_eyebrow: "TECHNICAL ARSENAL",
             skills_h2: "Technical <em>Infrastructure</em>",
-            skills_g1: "PROGRAMMING",
+            skills_g1: "Programming",
+            skills_g2: "Data & BI",
+            skills_g3: "Finance & Accounting",
+            skills_g4: "AI & Strategy",
             skill_excel: "VBA / Excel",
-            skills_g2: "DATA ANALYSIS & BI",
-            skills_g3: "FINANCE & ACCOUNTING",
             skill_modeling: "Financial Modeling",
             skill_tax: "Tax Planning (Moroccan Law)",
-            skills_g4: "SOFT SKILLS & STRATEGY",
             skill_politics: "Politics & Geopolitics Understanding",
             skill_critical: "Critical Thinking & Analysis",
             skill_comm: "Strategic Communication",
+            contact_lead: "Whether you're an institutional investor, a recruiting partner, or building something at the intersection of finance and AI — I want to hear from you.",
+            contact_avail: "Currently available for full-time roles and consulting engagements",
             cta_h2: "Let's Build the <em>Future of Finance</em>",
             cta_p: "Open for collaborations in Data Engineering, Financial Analysis, and AI Research.",
             cta_location: "Meknès, Morocco",
@@ -248,9 +269,10 @@
         },
         fr: {
             nav_about: "01 À propos",
-            nav_experience: "02 Expérience",
+            nav_experience: "02 Méthodologie",
             nav_projects: "03 Projets",
             nav_skills: "04 Compétences",
+            nav_contact: "05 Contact",
             hero_name_first: "MOHAMMED",
             hero_name_last: "EZZAHAR",
             hero_eyebrow: "Analyste Financier & de Données",
@@ -292,17 +314,20 @@
             proj_4_title: "Système de Recommandation Profonde",
             proj_4_p: "Moteur de recommandation multi-vecteurs pour un appariement personnalisé de produits financiers.",
             proj_view_arch: "Consulter l'Architecture →",
+            skills_eyebrow: "ARSENAL TECHNIQUE",
             skills_h2: "Infrastructure <em>Technique</em>",
-            skills_g1: "PROGRAMMATION",
+            skills_g1: "Programmation",
+            skills_g2: "Données & BI",
+            skills_g3: "Finance & Comptabilité",
+            skills_g4: "IA & Stratégie",
             skill_excel: "VBA / Excel",
-            skills_g2: "ANALYSE DE DONNÉES & BI",
-            skills_g3: "FINANCE & COMPTABILITÉ",
             skill_modeling: "Modélisation Financière",
             skill_tax: "Planification Fiscale (Droit Marocain)",
-            skills_g4: "SOFT SKILLS & STRATÉGIE",
             skill_politics: "Compréhension Politique et Géopolitique",
             skill_critical: "Pensée Critique et Analyse",
             skill_comm: "Communication Stratégique",
+            contact_lead: "Que vous soyez un investisseur institutionnel, un partenaire de recrutement, ou en train de construire quelque chose à l'intersection de la finance et de l'IA — je veux vous entendre.",
+            contact_avail: "Disponible pour des postes à temps plein et des missions de conseil",
             cta_h2: "Bâtissons l'<em>Avenir de la Finance</em>",
             cta_p: "Ouvert aux collaborations en ingénierie des données, analyse financière et recherche en IA.",
             cta_location: "Meknès, Maroc",
@@ -341,9 +366,10 @@
         },
         ar: {
             nav_about: "01 من أنا",
-            nav_experience: "02 الخبرة",
+            nav_experience: "02 المنهجية",
             nav_projects: "03 المشاريع",
             nav_skills: "04 المهارات",
+            nav_contact: "05 تواصل",
             hero_name_first: "مـحـمد",
             hero_name_last: "الـزهـر",
             hero_eyebrow: "محلل مالي ومحلل بيانات",
