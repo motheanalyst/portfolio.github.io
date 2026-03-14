@@ -1524,6 +1524,12 @@ h2 em {
         line-height: 0.85;
         white-space: normal;
         margin-bottom: 1.5rem;
+        text-align: left;
+    }
+
+    .hero-text {
+        text-align: left;
+        padding-left: 24px;
     }
 
     .hero-job-eyebrow {
