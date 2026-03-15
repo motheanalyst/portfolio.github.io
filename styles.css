@@ -400,7 +400,7 @@ h2 em {
     font-weight: 600;
     text-transform: uppercase;
     line-height: 0.9;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.75rem; /* Reduced further */
     letter-spacing: -0.02em;
     display: flex;
     flex-direction: column;
@@ -444,25 +444,26 @@ h2 em {
 .hero-socials {
     display: flex;
     justify-content: center;
-    gap: 18px;
-    margin-bottom: 1.2rem; /* Reduced from 1.8rem */
+    gap: 15px; /* Tighter gap */
+    margin-bottom: 1rem; /* Further reduced from 1.2rem */
     position: relative;
     z-index: 10;
 }
 
 .hero-socials a {
-    font-size: 1.25rem;
+    font-size: 1.5rem; /* Slightly larger for better color impact */
     transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    opacity: 0.8; /* Higher base opacity for color visibility */
+    opacity: 1; /* Full opacity for vibrant colors */
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
 }
 
-.hero-socials a.social-linkedin { color: #0077b5; }
-.hero-socials a.social-github { color: #ffffff; }
-.hero-socials a.social-x { color: #ffffff; }
-.hero-socials a.social-medium { color: #00ab6c; }
-.hero-socials a.social-reddit { color: #ff4500; }
-.hero-socials a.social-substack { color: #ff6719; }
-.hero-socials a.social-youtube { color: #ff0000; }
+.hero-socials a.social-linkedin { color: #0077b5; filter: drop-shadow(0 0 10px rgba(0, 119, 181, 0.4)); }
+.hero-socials a.social-github { color: #ffffff; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4)); }
+.hero-socials a.social-x { color: #ffffff; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4)); }
+.hero-socials a.social-medium { color: #00ab6c; filter: drop-shadow(0 0 10px rgba(0, 171, 108, 0.4)); }
+.hero-socials a.social-reddit { color: #ff4500; filter: drop-shadow(0 0 10px rgba(255, 69, 0, 0.4)); }
+.hero-socials a.social-substack { color: #ff6719; filter: drop-shadow(0 0 10px rgba(255, 103, 25, 0.4)); }
+.hero-socials a.social-youtube { color: #ff0000; filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.4)); }
 
 .hero-socials a:hover {
     opacity: 1;
@@ -1715,13 +1716,13 @@ h2 em {
         font-size: clamp(1.6rem, 9.5vw, 3rem);
         line-height: 0.85;
         white-space: normal;
-        margin-bottom: 0.5rem; /* Reduced from 1rem */
+        margin-bottom: 0.25rem; /* Extreme reduction */
     }
 
     .hero-job-eyebrow {
         font-size: 0.65rem;
         letter-spacing: 0.2em;
-        margin-bottom: 0.5rem; /* Reduced */
+        margin-bottom: 0.25rem; /* Extreme reduction */
         background: linear-gradient(90deg, #3b82f6 0%, #94a3b8 100%);
         -webkit-background-clip: text;
         background-clip: text;
