@@ -375,12 +375,16 @@ h2 em {
 
 .hero-job-eyebrow {
     font-family: var(--font-tech);
-    font-size: 0.85rem;
-    color: var(--text-dim);
+    font-size: 0.9rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.4em;
     margin-bottom: 1rem;
-    font-weight: 500;
+    background: linear-gradient(90deg, #3b82f6 0%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
 .hero-name {
