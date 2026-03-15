@@ -25,6 +25,26 @@
     <!-- Global Elements -->
     <div class="grain-overlay"></div>
 
+    <!-- Mobile Navigation -->
+    <div id="nav-burger" class="nav-burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-mobile-menu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+    </div>
+
+    <nav id="nav-mobile-menu" class="nav-mobile-menu" aria-hidden="true">
+        <div class="mobile-links">
+            <a href="#about" data-i18n="nav_about"><span class="nav-num">01</span> About</a>
+            <a href="#projects" data-i18n="nav_projects"><span class="nav-num">02</span> Projects</a>
+            <a href="#skills" data-i18n="nav_skills"><span class="nav-num">03</span> Skills</a>
+            <a href="#contact" data-i18n="nav_contact"><span class="nav-num">04</span> Contact</a>
+        </div>
+        <div class="mobile-lang">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fr">FR</button>
+            <button class="lang-btn" data-lang="ar">AR</button>
+        </div>
+    </nav>
+
     <nav class="hero-nav-pill">
         <div class="pill-links">
             <a href="#about" data-section="about" data-i18n="nav_about"><span class="nav-num">01</span> About</a>
