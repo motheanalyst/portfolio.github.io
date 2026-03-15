@@ -145,55 +145,64 @@ img {
     }
 }
 
-/* --- GLOBAL NAVIGATION PILL (Fixed Top) --- */
-.hero-nav-pill {
+/* --- GLOBAL NAVIGATION (Fixed Top) --- */
+.nav-container {
     position: fixed;
-    top: 18px;
+    top: 15px;
     left: 50%;
     transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* Gap between pill and social icons */
+    z-index: 1000;
+    width: auto;
+    max-width: 95vw;
+}
+
+.hero-nav-pill {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 100px;
-    padding: 6px 14px;
+    padding: 5px 12px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    z-index: 1000;
+    gap: 10px;
     box-shadow: 
-        0 12px 24px rgba(0, 0, 0, 0.4),
-        inset 0 0 1px 1px rgba(255, 255, 255, 0.1);
+        0 10px 20px rgba(0, 0, 0, 0.3),
+        inset 0 0 1px 1px rgba(255, 255, 255, 0.05);
     animation: navFloat 6s ease-in-out infinite;
     transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes navFloat {
-    0%, 100% { transform: translate(-50%, 0); }
-    50% { transform: translate(-50%, -4px); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
 }
 
 .pill-links {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
 }
 
 .pill-links a {
     font-family: var(--font-tech);
-    font-size: 9.5px;
+    font-size: 8.5px;
     color: var(--text-mid);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 3px;
     transition: color 0.3s;
 }
 
 .pill-links a .nav-num {
     opacity: 0.5;
-    font-size: 7px;
+    font-size: 6.5px;
 }
 
 .pill-links a:hover {
@@ -202,30 +211,36 @@ img {
 
 .pill-divider {
     width: 1px;
-    height: 14px;
+    height: 12px;
     background: rgba(255, 255, 255, 0.15);
+}
+
+.pill-socials-wrapper {
+    animation: navFloat 6s ease-in-out infinite reverse; /* Floats opposite to the pill */
 }
 
 .pill-socials {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .pill-socials a {
     color: var(--text-mid);
-    font-size: 12px;
+    font-size: 11px;
     transition: 0.3s;
+    opacity: 0.7;
 }
 
 .pill-socials a:hover {
+    opacity: 1;
     color: var(--accent);
-    transform: translateY(-2px) scale(1.1);
+    transform: translateY(-1px) scale(1.1);
 }
 
 .hero-nav-pill .lang-switch {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     align-items: center;
 }
 
@@ -233,7 +248,7 @@ img {
     background: transparent;
     border: none;
     font-family: var(--font-tech);
-    font-size: 8.5px;
+    font-size: 8px;
     color: var(--text-dim);
     cursor: pointer;
     transition: 0.3s;
@@ -1699,29 +1714,22 @@ h2 em {
 @media (max-width: 768px) {
 
     /* Keep pill visible but compact on mobile */
+    .nav-container {
+        width: 100%;
+        top: 10px;
+        gap: 6px;
+    }
+
     .hero-nav-pill {
-        width: calc(100% - 32px);
-        max-width: 450px;
-        padding: 5px 12px;
+        padding: 4px 10px;
         gap: 8px;
-        top: 12px;
     }
 
-    .pill-links { gap: 10px; }
-    .pill-links a { font-size: 8.5px; }
-    .pill-socials { display: none; } /* Hide socials on phone to save space */
-    .pill-divider { display: none; }
+    .pill-links { gap: 8px; }
+    .pill-links a { font-size: 8px; }
+    .pill-socials { gap: 8px; }
+    .pill-socials a { font-size: 10px; }
 
-    /* Position the nav burger fixed to top right on mobile */
-    .nav-burger {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 10002;
-        background: rgba(13, 14, 23, 0.7);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-    }
 
     .hero-status {
         margin-bottom: 1.5rem;
@@ -1749,11 +1757,6 @@ h2 em {
         padding: 0 10px;
     }
 
-    /* Show the hamburger button */
-    .nav-burger {
-        display: flex;
-        flex-shrink: 0;
-    }
 }
 
 /* Language Switcher */
