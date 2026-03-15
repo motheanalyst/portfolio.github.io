@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7. Navbar Logic
     const burger = document.getElementById('nav-burger');
     const mobileMenu = document.getElementById('nav-mobile-menu');
-    const navLinks = document.querySelectorAll('.nav-links a, .mobile-links a');
+    const navLinks = document.querySelectorAll('.pill-links a, .mobile-links a');
     const sections = document.querySelectorAll('section[id]');
 
     // Burger Toggle
@@ -111,14 +111,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Handle Nav Background & Shrink on Scroll
-    const siteNav = document.querySelector('.site-nav');
+    // Handle Active States on Scroll
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            siteNav.classList.add('scrolled');
-        } else {
-            siteNav.classList.remove('scrolled');
-        }
+        let current = '';
+        const offset = 100; // Offset for top navbar
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.scrollY >= sectionTop - offset) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
     }, { passive: true });
 
     // Stagger skill group entrance animation
@@ -563,7 +574,7 @@ document.addEventListener('DOMContentLoaded', () => {
     switchLanguage(savedLang);
 
     // --- Project Page Interactivity ---
-    
+
     // Parallax Effect for Hero
     const heroBg = document.querySelector('.project-detail-hero .hero-bg');
     if (heroBg) {
