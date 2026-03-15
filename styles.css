@@ -151,10 +151,10 @@ img {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(220, 220, 225, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 100px;
     padding: 10px 32px;
     display: flex;
@@ -210,8 +210,8 @@ img {
 
 .pill-divider {
     width: 1px;
-    height: 12px;
-    background: rgba(255, 255, 255, 0.15);
+    height: 14px;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .pill-socials {
@@ -1368,8 +1368,8 @@ h2 em {
 
 .pill-divider {
     width: 1px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.1);
+    height: 14px;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .pill-socials {
@@ -1631,7 +1631,8 @@ h2 em {
     }
 
     .pill-divider {
-        height: 10px !important;
+        height: 12px !important;
+        background: rgba(0, 0, 0, 0.2) !important;
     }
 
     .pill-links {
@@ -1715,7 +1716,7 @@ h2 em {
 }
 
 .lang-btn.active {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.1);
 }
 
 .mobile-lang {
