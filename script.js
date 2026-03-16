@@ -164,10 +164,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // 8. Translation Engine
     const translations = {
         en: {
-            nav_about: "01 About",
-            nav_projects: "02 Projects",
-            nav_skills: "03 Skills",
-            nav_contact: "04 Contact",
+            nav_about: "About",
+            nav_projects: "Projects",
+            nav_skills: "Skills",
+            nav_contact: "Contact",
             hero_name_first: "MOHAMMED",
             hero_name_last: "EZZAHAR",
             hero_eyebrow: "Financial & Data Analyst",
@@ -298,10 +298,10 @@ document.addEventListener('DOMContentLoaded', () => {
             proj_4_p: "Multi-vector recommendation engine for personalized financial product matching."
         },
         fr: {
-            nav_about: "01 À propos",
-            nav_projects: "02 Projets",
-            nav_skills: "03 Compétences",
-            nav_contact: "04 Contact",
+            nav_about: "À propos",
+            nav_projects: "Projets",
+            nav_skills: "Compétences",
+            nav_contact: "Contact",
             hero_name_first: "MOHAMMED",
             hero_name_last: "EZZAHAR",
             hero_eyebrow: "Analyste Financier & de Données",
@@ -405,10 +405,10 @@ document.addEventListener('DOMContentLoaded', () => {
             proj_4_p: "Moteur de recommandation multi-vecteurs pour un appariement personnalis\u00e9 de produits financiers."
         },
         ar: {
-            nav_about: "01 من أنا",
-            nav_projects: "02 المشاريع",
-            nav_skills: "03 المهارات",
-            nav_contact: "04 تواصل",
+            nav_about: "من أنا",
+            nav_projects: "المشاريع",
+            nav_skills: "المهارات",
+            nav_contact: "تواصل",
             hero_name_first: "مـحـمد",
             hero_name_last: "الـزهـر",
             hero_eyebrow: "محلل مالي ومحلل بيانات",
