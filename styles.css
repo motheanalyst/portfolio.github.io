@@ -2826,9 +2826,8 @@ a.contact-item:hover .ci-value {
     justify-content: space-between;
     gap: 40px;
     flex-wrap: wrap;
-    padding-bottom: 40px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 32px;
+    padding-bottom: 0;
+    margin-bottom: 64px;
 }
 
 .footer-brand {
