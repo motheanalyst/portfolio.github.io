@@ -189,8 +189,8 @@ img {
 }
 
 .pill-links a {
-    font-family: var(--font-tech);
-    font-size: 12.5px;
+    font-family: var(--font-display);
+    font-size: 13px;
     font-weight: 700;
     color: #ffffff !important;
     text-transform: uppercase;
@@ -267,8 +267,8 @@ img {
 .hero-nav-pill .lang-btn {
     background: transparent;
     border: none;
-    font-family: var(--font-tech);
-    font-size: 12.5px;
+    font-family: var(--font-display);
+    font-size: 13px;
     font-weight: 700;
     color: #ffffff !important;
     cursor: pointer;
