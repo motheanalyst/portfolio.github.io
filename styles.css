@@ -365,12 +365,13 @@ h2 em {
     height: 100%;
     display: flex;
     align-items: flex-end;
-    /* Moved from center to bottom */
+    /* Keeps content at the bottom of the viewport */
     justify-content: center;
-    padding-bottom: 15px;
-    /* Precise edge positioning */
+    padding-bottom: 60px;
+    /* INCREASED from 15px to lift it off the very bottom edge */
+    padding-top: 100px;
+    /* ADDED to ensure it clears the 60-80px nav pill even on small screens */
     z-index: 10;
-    /* High z-index to stay above overlays */
     position: relative;
     text-align: center;
 }
@@ -443,13 +444,17 @@ h2 em {
     text-transform: uppercase;
     line-height: 0.9;
     margin-bottom: 0.75rem;
-    /* Reduced further */
     letter-spacing: -0.02em;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.05em;
     text-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+[lang="ar"] .hero-name {
+    line-height: 1.25;
+    padding-top: 20px;
 }
 
 .name-first {
