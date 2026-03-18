@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cairo:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@300;400&display=swap');
 
 :root {
     /* Color Palette - Monochrome Luxury */
@@ -24,7 +24,7 @@
     --font-editorial: 'Playfair Display', serif;
     --font-tech: 'JetBrains Mono', monospace;
     --font-body: 'Outfit', sans-serif;
-    --font-arabic: 'Cairo', sans-serif;
+    --font-arabic: 'IBM Plex Sans Arabic', sans-serif;
 
     /* Spacing */
     --padding-global: 60px;
@@ -60,6 +60,10 @@ section {
     position: relative;
     padding: var(--section-padding) var(--padding-global);
     overflow: hidden;
+}
+
+[lang="ar"] {
+    font-family: var(--font-arabic) !important;
 }
 
 .container {
@@ -352,8 +356,8 @@ h2 em {
     width: 100%;
     height: 100%;
     background:
-        radial-gradient(circle at 50% 45%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.7) 100%),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 40%, rgba(0, 0, 0, 0.8) 100%);
+        radial-gradient(circle at 50% 45%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.6) 100%),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, transparent 50%, rgba(0, 0, 0, 0.8) 100%);
     z-index: 1;
 }
 
@@ -3114,32 +3118,43 @@ a.contact-item:hover .ci-value {
 /* ── Mobile & RTL Nav Polishing ── */
 @media (max-width: 600px) {
     .hero-nav-pill {
-        padding: 8px 16px;
-        gap: 12px;
+        padding: 8px 14px;
+        gap: 10px;
         top: 15px;
-        max-width: calc(100vw - 20px);
+        max-width: calc(100vw - 16px);
     }
 
     .pill-links {
-        gap: 10px;
+        gap: 8px;
     }
 
     .pill-links a {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .pill-socials {
-        gap: 12px;
+        gap: 10px;
     }
     
     .pill-socials a {
-        font-size: 14px;
+        font-size: 13px;
     }
 }
 
 /* Specific Arabic (RTL) Mobile Adjustment */
 [dir="rtl"] .hero-nav-pill {
     flex-direction: row-reverse;
+}
+
+@media (max-width: 500px) {
+    [dir="rtl"] .pill-socials {
+        display: none; /* Priority to text links in RTL mobile */
+    }
+    
+    [dir="rtl"] .hero-nav-pill {
+        gap: 14px;
+        padding: 8px 18px;
+    }
 }
 
 @media (max-width: 480px) {
