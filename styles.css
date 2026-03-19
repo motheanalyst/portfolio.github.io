@@ -2980,9 +2980,108 @@ a.contact-item:hover .ci-value {
 
 .method-grid-v2 {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    margin-top: 48px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+}
+
+/* Featured Experience Card */
+.method-featured {
+    display: grid;
+    grid-template-columns: 1.2fr 1.8fr;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.method-featured:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.mf-content {
+    padding: 60px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mf-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 32px;
+    font-family: var(--font-tech);
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background: #00ff88;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ff88;
+    animation: status-pulse 2s infinite;
+}
+
+@keyframes status-pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+.mf-image {
+    position: relative;
+    min-height: 400px;
+    overflow: hidden;
+}
+
+.mf-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: saturate(0.8) brightness(0.9);
+}
+
+.method-featured:hover .mf-image img {
+    transform: scale(1.05);
+    filter: saturate(1) brightness(1);
+}
+
+.mf-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--bg-2) 0%, transparent 20%, transparent 80%, var(--bg-2) 100%);
+    pointer-events: none;
+}
+
+@media (max-width: 991px) {
+    .method-featured {
+        grid-template-columns: 1fr;
+    }
+    .mf-content {
+        padding: 40px 32px;
+    }
+    .mf-image {
+        min-height: 300px;
+        order: -1;
+    }
+    .mf-overlay {
+        background: linear-gradient(0deg, var(--bg-2) 0%, transparent 20%, transparent 80%, var(--bg-2) 100%);
+    }
+}
+
+@media (max-width: 768px) {
+    .method-grid-v2 {
+        grid-template-columns: 1fr;
+    }
 }
 
 .method-card-v2 {
