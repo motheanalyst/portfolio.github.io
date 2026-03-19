@@ -1673,3 +1673,184 @@ h2 em {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
+
+/* --- New 2026 Additions --- */
+
+.tags-mini {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.tags-mini .s-tag {
+    font-family: var(--font-tech);
+    font-size: 11px;
+    color: var(--text-mid);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.tags-mini .s-tag i {
+    color: var(--accent);
+    opacity: 0.6;
+}
+
+.tags-mini .s-tag:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent);
+    color: var(--text);
+    transform: translateY(-2px);
+}
+
+/* Market Fit Section */
+.market-fit-section {
+    background: var(--bg-2);
+}
+
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.market-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    padding: 40px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.market-card:hover {
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.04);
+    transform: translateY(-6px);
+}
+
+.mc-icon {
+    font-size: 24px;
+    color: var(--accent);
+    opacity: 0.8;
+}
+
+.market-card h3 {
+    font-family: var(--font-editorial);
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.market-card p {
+    font-family: var(--font-tech);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.market-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.market-card ul li {
+    font-size: 14px;
+    color: var(--text-mid);
+    position: relative;
+    padding-left: 20px;
+}
+
+.market-card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    opacity: 0.5;
+}
+
+.mc-skills {
+    margin-top: auto;
+    font-family: var(--font-tech);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+}
+
+/* Cert Section */
+.cert-section {
+    background: var(--bg);
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.cert-card {
+    background: var(--bg-3);
+    border: 1px solid var(--border);
+    padding: 32px;
+    border-radius: 4px;
+    position: relative;
+    transition: 0.4s;
+}
+
+.cert-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+}
+
+.cert-status {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    font-family: var(--font-tech);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border-radius: 2px;
+}
+
+.cert-status.completed {
+    background: rgba(34, 197, 94, 0.1);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.cert-status.in-progress {
+    background: rgba(234, 179, 8, 0.1);
+    color: #fde047;
+    border: 1px solid rgba(234, 179, 8, 0.2);
+}
+
+.cert-card h4 {
+    font-family: var(--font-editorial);
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    padding-right: 80px;
+}
+
+.cert-card p {
+    font-size: 13px;
+    color: var(--text-dim);
+}
+
+@media (max-width: 968px) {
+    .market-grid, .cert-grid {
+        grid-template-columns: 1fr;
+    }
+}
