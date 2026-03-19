@@ -1854,3 +1854,171 @@ h2 em {
         grid-template-columns: 1fr;
     }
 }
+
+/* --- Market Fit Section --- */
+.market-fit-section {
+    position: relative;
+    border-top: 1px solid var(--border);
+    background-color: var(--bg-2);
+}
+
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.market-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-m);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.market-card:hover {
+    border-color: var(--accent-glow);
+    background: rgba(255, 255, 255, 0.04);
+    transform: translateY(-5px);
+}
+
+.mc-icon {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.market-card h3 {
+    font-family: var(--font-editorial);
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+
+.market-card p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-tech);
+    letter-spacing: 0.05em;
+}
+
+.market-card ul {
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.market-card ul li {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.market-card ul li::before {
+    content: '→';
+    color: var(--accent-glow);
+    font-size: 1rem;
+    margin-top: -2px;
+}
+
+.mc-skills {
+    font-family: var(--font-tech);
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+
+/* --- Certifications Section --- */
+.cert-section {
+    position: relative;
+    border-top: 1px solid var(--border);
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.cert-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2.5rem;
+    position: relative;
+    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cert-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+}
+
+.cert-status {
+    font-family: var(--font-tech);
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.35rem 0.85rem;
+    border-radius: 4px;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.cert-status.completed {
+    background: rgba(0, 255, 136, 0.1);
+    color: #4ade80;
+    border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.cert-status.in-progress {
+    background: rgba(96, 165, 250, 0.1);
+    color: #60a5fa;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.cert-card h4 {
+    font-family: var(--font-editorial);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    width: 80%;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+.cert-card p {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+}
+
+/* Add Responsive Rules for New Sections */
+@media screen and (max-width: 1024px) {
+    .market-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .market-grid,
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+    .cert-card h4 {
+        width: 100%;
+        margin-top: 2rem;
+    }
+}
