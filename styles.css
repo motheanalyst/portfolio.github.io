@@ -2673,6 +2673,10 @@ h2 em {
     text-align: left;
 }
 
+.contact-grid .contact-item:last-child:nth-child(odd) {
+    grid-column: span 2;
+}
+
 .contact-item {
     display: flex;
     align-items: center;
