@@ -111,33 +111,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Handle Active States on Scroll
-    window.addEventListener('scroll', () => {
-        let current = '';
-        const offset = 100; // Offset for top navbar
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (window.scrollY >= sectionTop - offset) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').includes(current)) {
-                link.classList.add('active');
-            }
-        });
-    }, { passive: true });
-
     // Stagger skill group entrance animation
     document.querySelectorAll('.skill-group-v2').forEach((group, i) => {
         group.style.transitionDelay = `${i * 0.1}s`;
     });
-
-    // Scroll Progress & Active Links
 
     // Active Link Highlighting (Intersection Observer)
     const navObserverOptions = {
@@ -151,7 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const id = entry.target.getAttribute('id');
                 navLinks.forEach(link => {
                     link.classList.remove('active');
-                    if (link.getAttribute('data-section') === id) {
+                    // Match either by data-section or href
+                    if (link.getAttribute('data-section') === id || link.getAttribute('href').includes(id)) {
                         link.classList.add('active');
                     }
                 });
@@ -164,136 +142,286 @@ document.addEventListener('DOMContentLoaded', () => {
     // 8. Translation Engine
     const translations = {
         en: {
+            // Nav
             nav_about_short: "About",
             nav_projects_short: "Projects",
             nav_skills_short: "Skills",
             nav_contact_short: "Contact",
+            nav_about: "About",
+            nav_projects: "Projects",
+            nav_skills: "Skills",
+            nav_contact: "Contact",
+            nav_experience_short: "Methodology",
+            footer_name: "Mohammed Ezzahar",
+            page_title: "Mohammed Ezzahar | Financial Analyst · AI/Data Engineer · Accounting Automation",
+            meta_desc: "Mohammed Ezzahar — Financial Analyst & AI Engineer. Bridging Accounting Integrity with AI-Driven Financial Intelligence. Python · SQL · Power BI · XGBoost · Financial Modeling.",
+            
+            // Tooltips
+            tt_linkedin: "LinkedIn",
+            tt_github: "GitHub",
+            tt_twitter: "X (Twitter)",
+            tt_medium: "Medium",
+            tt_reddit: "Reddit",
+            tt_substack: "Bookmark",
+            tt_youtube: "YouTube",
+
+            // Hero
             hero_name_first: "MOHAMMED",
             hero_name_last: "EZZAHAR",
             hero_eyebrow: "Financial Analyst · AI/Data Engineer · Accounting Automation",
             hero_tagline: "Engineering the intersection of Accounting Integrity, Python Automation, and AI-Driven Financial Intelligence — from Morocco to global markets.",
             hero_status: "Global Market Alignment Active",
+
+            // About
             about_eyebrow: "THE PHILOSOPHY",
             about_h2: "The Convergence of <em>Logic & Capital</em>",
-            about_lead: "95% Error Reduction · 91% Fraud Precision · 20% Tax Savings Modeled · 5 Production Projects",
-            about_p1: "A rare hybrid profile bridging **Accounting Integrity** and **AI-Driven Financial Intelligence**. Trained in the academic rigour of **Université Moulay Ismail** and battle-tested in the high-stakes startup ecosystem at **ALIFFA**, I specialize in building audit-grade automation pipelines and predictive models that transform institutional risk into strategic advantage.",
-            about_p2: "As a multi-disciplinary engineer, I translate complex CFO-level mandates — from IFRS/GAAP tax optimization to multi-modal sentiment signal extraction — into production-ready Python, SQL, and Power BI environments. I am built for the 2026 market: where accounting reliability meets the frontier of AI scalability.",
+            about_lead: "Engineering the intersection of Accounting Integrity and AI-Driven Financial Intelligence — measurable impact at every layer of the financial stack.",
+            stat_1: "95% error reduction",
+            stat_2: "91% fraud precision",
+            stat_3: "20% tax savings modeled",
+            stat_4: "5 production projects",
+            about_p1: "Rooted in the academic precision of <strong>Université Moulay Ismail</strong> and forged as Co-founder and CFO/CTO of <strong>ALIFFA Startup</strong>, I represent a rare 2026 profile: the synthesis of <strong>Accounting Integrity</strong> (IFRS, GAAP, SOX-adjacent frameworks), <strong>Python-driven automation</strong>, and <strong>AI/ML engineering</strong> — the exact convergence demanded by Deloitte's Omnia AI teams, PwC's digital advisory, and fintech quant desks globally.",
+            about_p2: "From engineering automated bank reconciliation pipelines that eliminate 95% of manual errors, to building XGBoost fraud classifiers at 91% precision and transformer-based financial recommenders — every project I build is calibrated to the standards expected by top-tier firms in the Big 4, investment banking, and data-driven hedge fund analytics.",
+            testimonial_text: "\"The work Mohammed and his team produced wasn't just technical\u2014it was <strong>generational</strong> in Morocco's financial landscape.\"",
+            testimonial_author: "\u2014 Executive Board, ALIFFA Startup",
+
+            // Projects
             projects_eyebrow: "SELECTED WORKS",
-            projects_h2: "Market-Driven <em>Engineering</em>",
+            projects_h2: "Portfolio <em>Excellence</em>",
             proj_f_eyebrow: "FEATURED · FINTECH & AI",
             proj_f_title: "Fraud Detection & AI Recommender",
-            proj_f_p: "91% Precision XGBoost classifier and Transformer-driven personalization engine for institutional asset management.",
+            proj_f_p: "XGBoost fraud classifier achieving 91% precision with 30% false-positive reduction on live transaction data — combined with a Transformer-based financial product recommender that lifted session depth 8%.",
             proj_1_eyebrow: "ACCOUNTING · AUTOMATION",
             proj_1_title: "Bank Reconciliation Pipeline",
-            proj_1_p: "Big 4-grade automated ETL pipeline matching 100% of transaction populations with fuzzy-logic matching.",
-            proj_2_eyebrow: "ALT DATA · EQUITY RESEARCH",
+            proj_1_p: "Python & SQL automated reconciliation pipeline eliminating manual entry errors by 95%.",
+            proj_2_eyebrow: "DATA SCIENCE · FINANCE",
             proj_2_title: "Sentiment-AI Market Bot",
             proj_2_p: "NLP pipeline utilizing FinBERT to extract proprietary sentiment signals from unstructured Bloomberg/Reuters data.",
-            proj_3_eyebrow: "TAX ADVISORY · ECONOMETRICS",
+            proj_3_eyebrow: "FINANCE · TAX STRATEGY",
             proj_3_title: "Corporate Tax Impact Study",
-            proj_3_p: "Power BI diagnostic modeling for Moroccan Free Trade Zone optimizations, projected 20% IS tax savings.",
-            proj_4_eyebrow: "AI · WEALTH ADVIZORY",
+            proj_3_p: "Econometric Python & Power BI modeling forecasting a 20% corporate tax (IS) savings.",
+            proj_4_eyebrow: "AI · MULTI-MODAL",
             proj_4_title: "Deep Recommender System",
-            proj_4_p: "Latent space vector search engine (FAISS) for matching high-net-worth clients to structured financial products.",
+            proj_4_p: "Multi-vector recommendation engine for personalized financial product matching.",
+
+            // Skills
             skills_eyebrow: "TECHNICAL ARSENAL",
-            method_3_p_1: "Developed a dashboard to isolate unmatched entries...",
-            proj_2_long_p1: "This AI bot monitors financial news in real-time...",
-            proj_2_challenge: "Massive volumes of news are published every second...",
-            proj_2_solution: "We built an NLP pipeline using transformer models...",
-            proj_2_conclusion: "The bot successfully automates the first layer of market sentiment analysis...",
-            method_1_h_2: "News Ingestion",
-            method_1_p_2: "Designed a real-time scraper for Reuters and Twitter...",
-            method_2_h_2: "NLP Classification",
-            method_2_p_2: "Fine-tuned a FinBERT model for financial nuances...",
-            method_3_h_2: "Signal Generation",
-            method_3_p_2: "Calculated weighted sentiment scores for signals...",
-            proj_3_long_p1: "This study analyzes the fiscal landscape for corporations in Morocco...",
-            proj_3_challenge: "Navigating Moroccan tax laws is complex for foreign investors...",
-            proj_3_solution: "I developed a diagnostic framework that evaluates tax scenarios...",
-            proj_3_conclusion: "The study served as a key reference for institutional tax planning...",
-            method_1_h_3: "Contextual Analysis",
-            method_1_p_3: "Mapped reforms in the Moroccan Finance Law...",
-            method_2_h_3: "Risk Quantification",
-            method_2_p_3: "Modeled potential fiscal liabilities in Excel...",
-            method_3_h_3: "Strategic Roadmap",
-            method_3_p_3: "Delivered prioritized compliance actions...",
-            proj_4_long_p1: "This recommendation engine matches customers with financial products...",
-            proj_4_challenge: "Traditional schemes are often too rigid for nuanced needs...",
-            proj_4_solution: "I developed an architecture based on deep embedding networks...",
-            proj_4_conclusion: "The system has fundamentally improved customer engagement...",
-            method_1_h_4: "Embedding Design",
-            method_1_p_4: "Built an auto-encoder to compress user features...",
-            method_2_h_4: "Vector Search Integration",
-            method_2_p_4: "Implemented FAISS for similarity lookups...",
-            method_3_h_4: "A/B Validation",
-            method_3_p_4: "Tested against collaborative filtering baselines, achieving a 20% higher conversion rate.",
-            // New keys
-            testimonial_text: "\"The work Mohammed and his team produced wasn't just technical\u2014it was <strong>generational</strong> in Morocco's financial landscape.\"",
-            testimonial_author: "\u2014 From official Mentors &amp; Referees",
+            skills_h2: "Technical <em>Infrastructure</em>",
+            skills_g1: "Programming",
+            skills_g2: "Data & BI",
+            skills_g3: "Finance & Accounting",
+            skills_g4: "AI & Strategy",
+            skills_g5: "Financial Modeling & Valuation",
+            skills_g6: "Cloud, ERP & Infrastructure",
+
+            // Market Alignment
+            market_fit_eyebrow: "CAREER TARGET",
+            market_fit_h2: "Market <em>Alignment</em>",
+            market_card_1_h3: "Big 4 & Audit Analytics",
+            market_card_1_p: "Deloitte · PwC · EY · KPMG",
+            market_1_li_1: "AI Audit Automation (Omnia / Halo / Clara)",
+            market_1_li_2: "Financial Data Analytics & BI",
+            market_1_li_3: "Tax Technology Advisory",
+            market_1_li_4: "ESG Reporting & Assurance",
+            market_1_li_5: "Finance Transformation Consulting",
+            market_card_2_h3: "Investment Banking & Fintech",
+            market_card_2_p: "JPMorgan · Goldman Sachs · FinTech Firms",
+            market_2_li_1: "Risk Analytics & Fraud Detection",
+            market_2_li_2: "Financial Product Data Science",
+            market_2_li_3: "M&A Financial Modeling Support",
+            market_2_li_4: "Alternative Data Pipeline Engineering",
+            market_2_li_5: "FP&A Automation & Forecasting",
+            market_card_3_h3: "Quant Finance & Research",
+            market_card_3_p: "Hedge Funds · Asset Managers · Research Teams",
+            market_3_li_1: "Quantitative Data Analysis",
+            market_3_li_2: "Sentiment Signal Engineering",
+            market_3_li_3: "Financial Recommender Systems",
+            market_3_li_4: "ML Factor Model Prototyping",
+            market_3_li_5: "Alternative Data Evaluation",
+
+            // Certifications
+            cert_eyebrow: "CREDENTIALS",
+            cert_h2: "Professional <em>Validation</em>",
+            cert_status_completed: "Completed",
+            cert_status_progress: "In Progress",
+            cert_1_h3: "Moroccan Finance Law & IS Tax Framework",
+            cert_1_p: "Demonstrated via Corporate Tax Impact Study Project",
+            cert_2_h3: "Python for Data Science",
+            cert_2_p: "Demonstrated via 4+ production-grade AI projects",
+            cert_3_h3: "SQL & Database Engineering",
+            cert_3_p: "Demonstrated via Bank Reconciliation ETL Pipeline",
+            cert_4_h3: "IFRS Standards Awareness",
+            cert_4_p: "Demonstrated via Financial Reporting & Analysis",
+            cert_5_h3: "CFA Level 1 Candidate",
+            cert_5_p: "Targets Senior Investment Banking/Hedge Fund Roles",
+            cert_6_h3: "FMVA® — Financial Modeling & Valuation Analyst",
+            cert_6_p: "CFI Institute · Practical 3-Statement & DCF Modeling",
+            cert_7_h3: "Power BI Data Analyst (PL-300)",
+            cert_7_p: "Microsoft Certified Associate",
+            cert_8_h3: "AWS Cloud Practitioner",
+            cert_8_p: "Cloud-based AI/Data Pipeline Deployment",
+
+            // Contact
             contact_eyebrow: "OPEN TO OPPORTUNITIES",
             contact_h2: "Let's Build <em>Something Real</em>",
-            contact_location: "Mekn\u00e8s, Morocco \u00b7 Available Remotely",
-            footer_role: "Financial &amp; Data Analyst \u00b7 AI Developer",
-            footer_location: "Mekn\u00e8s, Morocco",
-            nav_about_short: "About",
-            nav_projects_short: "Projects",
-            nav_skills_short: "Skills",
-            nav_contact_short: "Contact",
-            proj_2_eyebrow: "DATA SCIENCE \u00b7 FINANCE",
-            proj_2_title: "Sentiment-AI Market Bot",
-            proj_2_p: "Natural Language Processing bot filtering market sentiment from news feeds to forecast trends.",
-            proj_3_eyebrow: "FINANCE \u00b7 TAX STRATEGY",
-            proj_3_title: "Corporate Tax Impact Study",
-            proj_3_p: "Comprehensive analysis of Moroccan fiscal frameworks for institutional investment planning.",
-            proj_4_eyebrow: "AI \u00b7 MULTI-MODAL",
-            proj_4_title: "Deep Recommender System",
-            proj_4_p: "Multi-vector recommendation engine for personalized financial product matching."
+            contact_lead: "Whether you're hiring for <strong>Big 4 financial analytics</strong>, a <strong>fintech data science</strong> role, or building at the intersection of <strong>AI and institutional finance</strong> — I build production-grade systems that combine accounting rigor with machine learning precision. Open to full-time, remote, and international opportunities.",
+            contact_label_email: "EMAIL",
+            contact_label_phone: "PHONE",
+            contact_label_location: "LOCATION",
+            contact_location: "Meknès, Morocco · Available Remotely",
+            contact_avail: "Currently available for full-time roles and consulting engagements",
+            
+            // Footer
+            footer_role: "Financial & Data Analyst · AI Developer",
+            footer_location: "Meknès, Morocco",
+            copyright: "© 2026 Mohammed Ezzahar",
+
+            // Tag Translations
+            tag_python: "Python",
+            tag_tensorflow: "TensorFlow",
+            tag_pytorch: "PyTorch",
+            tag_sql: "SQL",
+            tag_vba: "VBA / Excel",
+            tag_pandas: "Pandas",
+            tag_numpy: "NumPy",
+            tag_sklearn: "Scikit-learn",
+            tag_powerbi: "PowerBI",
+            tag_tableau: "Tableau",
+            tag_matplotlib: "Matplotlib",
+            tag_seaborn: "Seaborn",
+            tag_plotly: "Plotly",
+            tag_streamlit: "Streamlit",
+            tag_pandas_prof: "Pandas Profiling",
+            tag_fin_model: "Financial Modeling",
+            tag_tax_plan: "Tax Planning (MA)",
+            tag_standards: "GAAP / IFRS / SOX-adjacent",
+            tag_bank_recon: "Bank Reconciliation",
+            tag_audit: "Audit Frameworks",
+            tag_fiscal_opt: "Fiscal Optimization",
+            tag_fpa: "FP&A Frameworks",
+            tag_esg: "ESG Reporting Awareness",
+            tag_forensic: "Forensic Data Analytics",
+            tag_ml: "LSTMs / Transformers",
+            tag_nlp: "NLP / FinBERT",
+            tag_vector: "Vector Search (FAISS)",
+            tag_logic: "Critical Thinking",
+            tag_geo: "Geopolitical Analysis",
+            tag_proto: "Strategic Communication",
+            tag_dcf: "DCF Modeling",
+            tag_3statement: "3-Statement Models",
+            tag_lbo: "LBO Fundamentals",
+            tag_ebitda: "EV/EBITDA Valuation",
+            tag_scenario: "Scenario Analysis",
+            tag_wcap: "Working Capital Analysis",
+            tag_cloud: "AWS / GCP",
+            tag_db: "PostgreSQL / Redis",
+            tag_docker: "Docker",
+            tag_erp: "ERP Awareness (SAP/Oracle)",
+            tag_snowflake: "Snowflake (learning)",
+            tag_api: "FastAPI / Celery",
+            tag_frontend: "Modern Frontend",
+            role_1: "Financial Analyst",
+            role_2: "AI & Data Engineer",
+            role_3: "Automation Expert",
+            role_4: "Strategic Wealth Optimizer"
         },
         fr: {
+            // Nav
+            nav_about: "À propos",
+            nav_projects: "Projets",
+            nav_skills: "Compétences",
+            nav_contact: "Contact",
             nav_about_short: "À propos",
             nav_projects_short: "Projets",
             nav_skills_short: "Compétences",
             nav_contact_short: "Contact",
+            nav_experience_short: "Méthodologie",
+
+            // Tooltips
+            tt_linkedin: "LinkedIn",
+            tt_github: "GitHub",
+            tt_twitter: "X (Twitter)",
+            tt_medium: "Medium",
+            tt_reddit: "Reddit",
+            tt_substack: "Signet",
+            tt_youtube: "YouTube",
+
+            // Hero
             hero_name_first: "MOHAMMED",
             hero_name_last: "EZZAHAR",
             hero_eyebrow: "Analyste Financier · Ingénieur IA/Données · Automatisation Comptable",
             hero_tagline: "Ingénierie à l'intersection de l'Intégrité Comptable, de l'Automatisation Python et de l'Intelligence Financière — du Maroc aux marchés mondiaux.",
             hero_status: "Alignement Marché Mondial Actif",
+
+            // About
             about_eyebrow: "LA PHILOSOPHIE",
             about_h2: "La Convergence de la <em>Logique et du Capital</em>",
-            about_lead: "Réduction d'Erreurs 95% · Précision Fraude 91% · Épargne Fiscale 20% · 5 Projets en Production",
-            about_p1: "Un profil hybride rare fusionnant **l'Intégrité Comptable** et **l'Intelligence Financière pilotée par l'IA**. Formé à la rigueur académique de l'**Université Moulay Ismaïl** et éprouvé dans l'écosystème agile des startups chez **ALIFFA**, je me spécialise dans la construction de pipelines d'automatisation de grade audit et de modèles prédictifs transformant le risque institutionnel en avantage stratégique.",
-            about_p2: "En tant qu'ingénieur multidisciplinaire, je traduis des mandats complexes de niveau CFO — de l'optimisation fiscale IFRS/GAAP à l'extraction de signaux de sentiment multi-modaux — en environnements Python, SQL et Power BI prêts pour la production. Je suis bâti pour le marché de 2026 : là où la fiabilité comptable rencontre la frontière de la scalabilité de l'IA.",
-            projects_eyebrow: "PROJETS SÉLECTIONNÉS",
-            projects_h2: "Ingénierie <em>Orientée Marché</em>",
+            about_lead: "Ingénierie à la convergence de l'intégrité comptable et de l'intelligence financière pilotée par l'IA — un impact mesurable à chaque strate.",
+            stat_1: "Réduction d'erreurs 95%",
+            stat_2: "Précision fraude 91%",
+            stat_3: "Économies d'impôts 20%",
+            stat_4: "5 projets en production",
+            about_p1: "Ancré dans la précision académique de l'<strong>Université Moulay Ismaïl</strong> et forgé en tant que Co-fondateur et CFO/CTO de la startup <strong>ALIFFA</strong>, je représente un profil rare de 2026 : la synthèse de l'<strong>Intégrité Comptable</strong> (IFRS, GAAP), de l'<strong>automatisation via Python</strong> et de l'<strong>ingénierie IA/ML</strong> — la convergence exigée par les équipes Omnia AI de Deloitte et le conseil digital de PwC.",
+            about_p2: "De l'ingénierie de pipelines automatisés de rapprochement bancaire éliminant 95% des erreurs manuelles, à la construction de classificateurs de fraude XGBoost à 91% de précision — chaque projet est calibré selon les standards des Big 4 et de la banque d'investissement.",
+            testimonial_text: "\"Le travail produit par Mohammed et son équipe n'était pas seulement technique\u2014il était <strong>générationnel</strong> pour le paysage financier du Maroc.\"",
+            testimonial_author: "\u2014 Conseil d'administration, ALIFFA Startup",
+
+            // Projects
+            projects_eyebrow: "TRAVAUX SÉLECTIONNÉS",
+            projects_h2: "Excellence du <em>Portfolio</em>",
             proj_f_eyebrow: "VEDETTE · FINTECH & IA",
             proj_f_title: "Détection de Fraude & Recommandeur IA",
-            proj_f_p: "Classifieur XGBoost de précision 91% et moteur de personnalisation via Transformers pour la gestion d'actifs institutionnels.",
+            proj_f_p: "Classificateur de fraude XGBoost atteignant 91% de précision avec une réduction de 30% des faux positifs sur les transactions en direct — combiné à un moteur de recommandation basé sur Transformers.",
             proj_1_eyebrow: "COMPTABILITÉ · AUTOMATISATION",
             proj_1_title: "Pipeline de Rapprochement Bancaire",
-            proj_1_p: "Pipeline ETL automatisé de grade Big 4 matching 100% des populations de transactions via logique floue.",
-            proj_2_eyebrow: "DONNÉES ALT · RECHERCHE ACTIONS",
-            proj_2_title: "Sentiment-AI Market Bot",
-            proj_2_p: "Pipeline NLP utilisant FinBERT pour extraire des signaux de sentiment propriétaires à partir de données Bloomberg/Reuters non structurées.",
-            proj_3_eyebrow: "CONSEIL FISCAL · ÉCONOMÉTRIE",
+            proj_1_p: "Pipeline ETL automatisé en Python et SQL éliminant 95% des erreurs de saisie manuelle.",
+            proj_2_eyebrow: "DATA SCIENCE · FINANCE",
+            proj_2_title: "Modèle de Sentiment & Génération de Texte IA",
+            proj_2_p: "Pipeline NLP basé sur BERT pour extraire des insights à travers plus de 50 000 interactions clients.",
+            proj_3_eyebrow: "FINANCE · STRATÉGIE FISCALE",
             proj_3_title: "Étude d'Impact Fiscal des Entreprises",
-            proj_3_p: "Modélisation diagnostique Power BI pour l'optimisation des Zones Franches marocaines, projection de 20% d'épargne fiscale (IS).",
-            proj_4_eyebrow: "IA · GESTION DE PATRIMOINE",
+            proj_3_p: "Modélisation économétrique prévoyant 20% d'économies d'impôt sur les sociétés (IS) via Power BI.",
+            proj_4_eyebrow: "IA · MULTI-MODAL",
             proj_4_title: "Système de Recommandation Profond",
-            proj_4_p: "Moteur de recherche vectorielle en espace latent (FAISS) pour l'appariement de clients fortunés à des produits financiers structurés.",
+            proj_4_p: "Moteur de recommandation multi-vectoriel pour l'appariement personnalisé de produits financiers.",
+
+            // Skills
             skills_eyebrow: "ARSENAL TECHNIQUE",
-            skills_h2: "Infrastructure <em>Marché</em>",
-            skills_g5: "Modélisation Financière & Valorisation",
+            skills_h2: "Infrastructure <em>Technique</em>",
+            skills_g1: "Programmation",
+            skills_g2: "Données & BI",
+            skills_g3: "Finance & Comptabilité",
+            skills_g4: "IA & Stratégie",
+            skills_g5: "Modélisation Financière & Évaluation",
             skills_g6: "Cloud, ERP & Infrastructure",
+
+            // Market Alignment
             market_fit_eyebrow: "CIBLE DE CARRIÈRE",
             market_fit_h2: "Alignement <em>Marché</em>",
-            market_card_1_h3: "Big 4 & Données d'Audit",
+            market_card_1_h3: "Big 4 & Analyse d'Audit",
             market_card_1_p: "Deloitte · PwC · EY · KPMG",
+            market_1_li_1: "Automatisation d'Audit IA (Omnia / Halo / Clara)",
+            market_1_li_2: "Analyse de Données Financières & BI",
+            market_1_li_3: "Conseil en Technologie Fiscale",
+            market_1_li_4: "Reporting ESG & Assurance",
+            market_1_li_5: "Conseil en Transformation Financière",
             market_card_2_h3: "Banque d'Investissement & Fintech",
             market_card_2_p: "JPMorgan · Goldman Sachs · Firmes FinTech",
+            market_2_li_1: "Analyse des Risques & Détection de Fraude",
+            market_2_li_2: "Data Science pour Produits Financiers",
+            market_2_li_3: "Support à la Modélisation Financière M&A",
+            market_2_li_4: "Ingénierie de Pipelines de Données Alternatives",
+            market_2_li_5: "Automatisation FP&A & Prévisions",
             market_card_3_h3: "Finance Quantitative & Recherche",
             market_card_3_p: "Hedge Funds · Gestionnaires d'Actifs · Équipes de Recherche",
-            cert_eyebrow: "CERTIFICATIONS",
+            market_3_li_1: "Analyse de Données Quantitatives",
+            market_3_li_2: "Ingénierie de Signaux de Sentiment",
+            market_3_li_3: "Systèmes de Recommandation Financière",
+            market_3_li_4: "Prototypage de Modèles de Facteurs ML",
+            market_3_li_5: "Évaluation de Données Alternatives",
+
+            // Certifications
+            cert_eyebrow: "DIPLÔMES & CERTIFICATIONS",
             cert_h2: "Validation <em>Professionnelle</em>",
             cert_status_completed: "Terminé",
             cert_status_progress: "En Cours",
@@ -306,58 +434,272 @@ document.addEventListener('DOMContentLoaded', () => {
             cert_4_h3: "Connaissance des Normes IFRS",
             cert_4_p: "Démontré via le Reporting & Analyse Financière",
             cert_5_h3: "Candidat CFA Niveau 1",
-            cert_5_p: "Vise des rôles Seniors en Banque d'Investissement/Hedge Fund",
-            cert_6_h3: "FMVA® — Analyste en Modélisation Financière & Valorisation",
+            cert_5_p: "Vise des rôles Seniors en Banque d'Investissement",
+            cert_6_h3: "FMVA® — Analyste en Modélisation Financière",
             cert_6_p: "CFI Institute · Modélisation Pratique 3-Statement & DCF",
             cert_7_h3: "Analyste de Données Power BI (PL-300)",
             cert_7_p: "Microsoft Certified Associate",
             cert_8_h3: "AWS Cloud Practitioner",
             cert_8_p: "Déploiement de Pipelines IA/Données sur le Cloud",
-            contact_lead: "Que vous recrutiez pour l'<strong>analyse financière Big 4</strong>, un rôle en <strong>data science fintech</strong>, ou que vous bâtissiez à l'intersection de l'<strong>IA et de la finance institutionnelle</strong> — je construis des systèmes de grade production qui combinent la rigueur comptable avec la précision du machine learning. Ouvert aux opportunités à plein temps, à distance et à l'international.",
-            contact_avail: "Prêt pour les Déploiements Marché 2026",
+
+            // Contact
+            contact_eyebrow: "OUVERT AUX OPPORTUNITÉS",
             contact_h2: "Construisons <em>Quelque Chose de Réel</em>",
-            contact_location: "Meknès, Maroc · Disponible à Distance",
-            footer_role: "Analyste Financier · Ingénieur IA/Données",
-            footer_location: "Meknès, Maroc"
+            contact_lead: "Que vous recrutiez pour l'analyse financière Big 4, un rôle en data science fintech, ou l'IA institutionnelle — je construis des systèmes robustes combinant rigueur comptable et machine learning. Ouvert à l'international.",
+            contact_label_email: "EMAIL",
+            contact_label_phone: "TÉLÉPHONE",
+            contact_label_location: "EMPLACEMENT",
+            contact_location: "Meknès, Maroc · Disponible à distance",
+            contact_avail: "Actuellement disponible pour des rôles à plein temps et missions de conseil",
+            
+            // Footer
+            footer_role: "Analyste Financier & IA",
+            footer_location: "Meknès, Maroc",
+            footer_name: "Mohammed Ezzahar",
+            page_title: "Mohammed Ezzahar | Analyste Financier · Ingénieur IA/Données · Automatisation Comptable",
+            meta_desc: "Mohammed Ezzahar — Analyste Financier et Ingénieur IA. Allier l'intégrité comptable à l'intelligence financière basée sur l'IA. Python · SQL · Power BI · XGBoost · Modélisation Financière.",
+            copyright: "© 2026 Mohammed Ezzahar",
+
+            // Tag Translations
+            tag_python: "Python",
+            tag_tensorflow: "TensorFlow",
+            tag_pytorch: "PyTorch",
+            tag_sql: "SQL",
+            tag_vba: "VBA / Excel",
+            tag_pandas: "Pandas",
+            tag_numpy: "NumPy",
+            tag_sklearn: "Scikit-learn",
+            tag_powerbi: "PowerBI",
+            tag_tableau: "Tableau",
+            tag_matplotlib: "Matplotlib",
+            tag_seaborn: "Seaborn",
+            tag_plotly: "Plotly",
+            tag_streamlit: "Streamlit",
+            tag_pandas_prof: "Pandas Profiling",
+            tag_fin_model: "Modélisation Financière",
+            tag_tax_plan: "Planification Fiscale (MA)",
+            tag_standards: "GAAP / IFRS / SOX-adjacent",
+            tag_bank_recon: "Rapprochement Bancaire",
+            tag_audit: "Frameworks d'Audit",
+            tag_fiscal_opt: "Optimisation Fiscale",
+            tag_fpa: "Cadres FP&A",
+            tag_esg: "Sensibilisation Reporting ESG",
+            tag_forensic: "Analyse de Données Judiciaires",
+            tag_ml: "LSTMs / Transformers",
+            tag_nlp: "NLP / FinBERT",
+            tag_vector: "Recherche Vectorielle (FAISS)",
+            tag_logic: "Pensée Critique",
+            tag_geo: "Analyse Géopolitique",
+            tag_proto: "Communication Stratégique",
+            tag_dcf: "Modélisation DCF",
+            tag_3statement: "Modèles 3-Statement",
+            tag_lbo: "Fondamentaux LBO",
+            tag_ebitda: "Valorisation EV/EBITDA",
+            tag_scenario: "Analyse de Scénarios",
+            tag_wcap: "Analyse du Fonds de Roulement",
+            tag_cloud: "AWS / GCP",
+            tag_db: "PostgreSQL / Redis",
+            tag_docker: "Docker",
+            tag_erp: "Sensibilisation ERP (SAP/Oracle)",
+            tag_snowflake: "Snowflake (apprentissage)",
+            tag_api: "FastAPI / Celery",
+            tag_frontend: "Frontend Moderne",
+            role_1: "Analyste Financier",
+            role_2: "Ingénieur IA & Données",
+            role_3: "Expert en Automatisation",
+            role_4: "Optimiseur de Patrimoine"
         },
         ar: {
-            nav_about_short: "من أنا",
+            // Nav
+            nav_about: "من أنا",
+            nav_projects: "المشاريع",
+            nav_skills: "المهارات",
+            nav_contact: "تواصل معي",
+            nav_about_short: "عنّي",
             nav_projects_short: "المشاريع",
             nav_skills_short: "المهارات",
-            nav_contact_short: "تواصل",
+            nav_contact_short: "التواصل",
+            nav_experience_short: "المنهجية",
+
+            // Tooltips
+            tt_linkedin: "لينكد إن",
+            tt_github: "جيت هاب",
+            tt_twitter: "إكس (تويتر)",
+            tt_medium: "ميديوم",
+            tt_reddit: "ريديت",
+            tt_substack: "المدونة",
+            tt_youtube: "يوتيوب",
+
+            // Hero
             hero_name_first: "مـحـمد",
             hero_name_last: "الـزهـر",
             hero_eyebrow: "محلل مالي · مهندس بيانات وذكاء اصطناعي · أتمتة المحاسبة",
             hero_tagline: "هندسة التقاطع بين نزاهة المحاسبة، أتمتة بايثون، والذكاء المالي المدفوع بالذكاء الاصطناعي — من المغرب إلى الأسواق العالمية.",
             hero_status: "تفعيل التوافق مع السوق العالمي",
+            
+            // About
             about_eyebrow: "الفلسفة",
             about_h2: "التقاء <em>المنطق ورأس المال</em>",
-            about_lead: "95% تقليل أخطاء · 91% دقة كشف احتيال · 20% نمذجة توفير ضريبي · 5 مشاريع إنتاجية",
-            about_p1: "ملف هجين نادر يربط بين **نزاهة المحاسبة** و **الذكاء المالي المدفوع بالذكاء الاصطناعي**. تدربت على الدقة الأكاديمية في **جامعة مولاي إسماعيل** وصقلت مهاراتي في بيئة الشركات الناشئة عالية المخاطر في **ALIFFA**. أتخصص في بناء مسارات أتمتة من درجة التدقيق ونماذج تنبؤية تحول المخاطر المؤسسية إلى ميزة استراتيجية.",
-            about_p2: "كمهندس متعدد التخصصات، أقوم بترجمة مهام مستوى الإدارة المالية المعقدة — من تحسين الضرائب وفق معايير IFRS/GAAP إلى استخراج إشارات المشاعر متعددة الأنماط — إلى بيئات Python و SQL و Power BI جاهزة للإنتاج. أنا مصمم لسوق 2026: حيث تلتقي موثوقية المحاسبة مع آفاق توسع الذكاء الاصطناعي.",
+            about_lead: "هندسة التقاطع بين نزاهة المحاسبة والذكاء المالي المدفوع بالذكاء الاصطناعي — تأثير ملموس في كل طبقة من النظام المالي.",
+            stat_1: "تقليل أخطاء بنسبة 95%",
+            stat_2: "دقة كشف احتيال 91%",
+            stat_3: "توفير ضريبي بنسبة 20%",
+            stat_4: "5 مشاريع إنتاجية",
+            about_p1: "بفضل الدقة الأكاديمية في <strong>جامعة مولاي إسماعيل</strong> وخبرتي كمؤسس شريك ومدير مالي وتقني لشركة <strong>ALIFFA</strong>، أمثل ملفاً نادراً لعام 2026: مزيج من <strong>نزاهة المحاسبة</strong> (معايير IFRS ،GAAP)، <strong>الأتمتة باستخدام بايثون</strong>، و <strong>هندسة الذكاء الاصطناعي</strong> — وهو التوافق الذي تطلبه فرق Omnia AI في Deloitte والاستشارات الرقمية في PwC.",
+            about_p2: "من بناء مسارات أتمتة لمطابقة الحسابات البنكية تمنع 95% من الأخطاء، إلى تطوير نماذج XGBoost لكشف الاحتيال بدقة 91% — كل مشروع مصمم وفقاً لأعلى المعايير المطلوبة في الشركات الكبرى (Big 4) وبنوك الاستثمار.",
+            testimonial_text: "\"العمل الذي قدمه محمد وفريقه لم يكن مجرد عمل تقني فحسب، بل كان <strong>نقلة نوعية</strong> في المشهد المالي بالمغرب.\"",
+            testimonial_author: "\u2014 المجلس التنفيذي، شركة ALIFFA",
+
+            // Projects
             projects_eyebrow: "أعمال مختارة",
-            projects_h2: "هندسة <em>موجهة للسوق</em>",
+            projects_h2: "تميز <em>المشاريع</em>",
             proj_f_eyebrow: "مميز · التكنولوجيا المالية والذكاء الاصطناعي",
             proj_f_title: "كشف الاحتيال ونظام التوصية الذكي",
-            proj_f_p: "مصنف XGBoost بدقة 91% ومحرك تخصيص قائم على Transformers لإدارة الأصول المؤسسية.",
+            proj_f_p: "نموذج XGBoost لكشف الاحتيال بدقة 91% مع تقليل الإنذارات الكاذبة بنسبة 30%، مدمج مع نظام توصية ذكي حسن تفاعل المستخدمين بنسبة 8%.",
             proj_1_eyebrow: "المحاسبة · الأتمتة",
             proj_1_title: "مسار مطابقة الحسابات البنكية",
-            nav_skills_short: "\u0627\u0644\u0645\u0647\u0627\u0631\u0627\u062a",
-            nav_contact_short: "\u062a\u0648\u0627\u0635\u0644",
-            proj_2_eyebrow: "\u0639\u0644\u0645 \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u00b7 \u0627\u0644\u0645\u0627\u0644\u064a\u0629",
-            proj_2_title: "\u0628\u0648\u062a \u0633\u0648\u0642 \u0627\u0644\u0645\u0634\u0627\u0639\u0631-\u0630\u0643\u0627\u0621",
-            proj_2_p: "\u0628\u0648\u062a \u0645\u0639\u0627\u0644\u062c\u0629 \u0627\u0644\u0644\u063a\u0629 \u0627\u0644\u0637\u0628\u064a\u0639\u064a\u0629 \u0644\u062a\u0635\u0641\u064a\u0629 \u0645\u0634\u0627\u0639\u0631 \u0627\u0644\u0633\u0648\u0642 \u0645\u0646 \u0645\u0635\u0627\u062f\u0631 \u0627\u0644\u0623\u062e\u0628\u0627\u0631 \u0644\u0644\u062a\u0646\u0628\u0624 \u0628\u0627\u0644\u0627\u062a\u062c\u0627\u0647\u0627\u062a.",
-            proj_3_eyebrow: "\u0627\u0644\u0645\u0627\u0644\u064a\u0629 \u00b7 \u0627\u0644\u0627\u0633\u062a\u0631\u0627\u062a\u064a\u062c\u064a\u0629 \u0627\u0644\u0636\u0631\u064a\u0628\u064a\u0629",
-            proj_3_title: "\u062f\u0631\u0627\u0633\u0629 \u062a\u0623\u062b\u064a\u0631 \u0636\u0631\u064a\u0628\u0629 \u0627\u0644\u0634\u0631\u0643\u0627\u062a",
-            proj_3_p: "\u062a\u062d\u0644\u064a\u0644 \u0634\u0627\u0645\u0644 \u0644\u0644\u0623\u0637\u0631 \u0627\u0644\u0636\u0631\u064a\u0628\u064a\u0629 \u0627\u0644\u0645\u063a\u0631\u0628\u064a\u0629 \u0644\u062a\u062e\u0637\u064a\u0637 \u0627\u0644\u0627\u0633\u062a\u062b\u0645\u0627\u0631 \u0627\u0644\u0645\u0624\u0633\u0633\u064a.",
-            proj_4_eyebrow: "\u0630\u0643\u0627\u0621 \u0627\u0635\u0637\u0646\u0627\u0639\u064a \u00b7 \u0645\u062a\u0639\u062f\u062f \u0627\u0644\u0623\u0648\u0636\u0627\u0639",
-            proj_4_title: "\u0646\u0638\u0627\u0645 \u062a\u0648\u0635\u064a\u0629 \u0639\u0645\u064a\u0642",
-            proj_4_p: "\u0645\u062d\u0631\u0643 \u062a\u0648\u0635\u064a\u0629 \u0645\u062a\u0639\u062f\u062f \u0627\u0644\u0645\u062a\u062c\u0647\u0627\u062a \u0644\u0645\u0637\u0627\u0628\u0642\u0629 \u0634\u062e\u0635\u064a\u0629 \u0644\u0644\u0645\u0646\u062a\u062c\u0627\u062a \u0627\u0644\u0645\u0627\u0644\u064a\u0629."
+            proj_1_p: "أتمتة شاملة باستخدام بايثون و SQL لمطابقة الحسابات وتجنب الأخطاء اليدوية بنسبة 95%.",
+            proj_2_eyebrow: "علم البيانات · المالية",
+            proj_2_title: "بوت ذكاء اصطناعي لتحليل المشاعر",
+            proj_2_p: "بوت معالجة لغة طبيعية (NLP) يعتمد على BERT لاستخراج رؤى من أكثر من 50 ألف تفاعل مع العملاء وتوقع الاتجاهات.",
+            proj_3_eyebrow: "المالية · الاستراتيجية الضريبية",
+            proj_3_title: "دراسة تأثير ضريبة الشركات",
+            proj_3_p: "نمذجة اقتصادية قياسية تتوقع توفيراً ضريبياً بنسبة 20% على الشركات (IS) عبر Power BI.",
+            proj_4_eyebrow: "ذكاء اصطناعي · متعدد الأنماط",
+            proj_4_title: "نظام توصية مالي عميق",
+            proj_4_p: "محرك توصية مالي مخصص لمطابقة العملاء مع المنتجات المالية المناسبة بدقة عالية.",
+
+            // Skills
+            skills_eyebrow: "الترسانة التقنية",
+            skills_h2: "البنية <em>التحتية</em>",
+            skills_g1: "البرمجة",
+            skills_g2: "البيانات وذكاء الأعمال",
+            skills_g3: "المالية والمحاسبة",
+            skills_g4: "الذكاء الاصطناعي والاستراتيجية",
+            skills_g5: "النمذجة المالية والتقييم",
+            skills_g6: "السحابة والبنية التحتية",
+
+            // Market Alignment
+            market_fit_eyebrow: "الهدف المهني",
+            market_fit_h2: "التوافق مع <em>السوق</em>",
+            market_card_1_h3: "الشركات الكبرى (Big 4) والتدقيق",
+            market_card_1_p: "Deloitte · PwC · EY · KPMG",
+            market_1_li_1: "أتمتة التدقيق باستخدام الذكاء الاصطناعي (Omnia / Halo)",
+            market_1_li_2: "تحليل البيانات المالية وذكاء الأعمال",
+            market_1_li_3: "استشارات تكنولوجيا الضرائب",
+            market_1_li_4: "تقارير المعايير البيئية والاجتماعية (ESG)",
+            market_1_li_5: "استشارات التحول المالي",
+            market_card_2_h3: "بنوك الاستثمار والتكنولوجيا المالية",
+            market_card_2_p: "JPMorgan · Goldman Sachs · شركات Fintech",
+            market_2_li_1: "تحليل المخاطر وكشف الاحتيال",
+            market_2_li_2: "علم البيانات للمنتجات المالية",
+            market_2_li_3: "دعم النمذجة المالية لعمليات الدمج والاستحواذ",
+            market_2_li_4: "هندسة مسارات البيانات البديلة",
+            market_2_li_5: "أتمتة التخطيط المالي والتحليل (FP&A)",
+            market_card_3_h3: "المالية الكمية والبحث",
+            market_card_3_p: "صناديق التحوط · مديرو الأصول · فرق البحث",
+            market_3_li_1: "تحليل البيانات الكمية",
+            market_3_li_2: "هندسة إشارات تحليل المشاعر",
+            market_3_li_3: "أنظمة التوصية المالية",
+            market_3_li_4: "نماذج تعلم الآلة المتقدمة",
+            market_3_li_5: "تقييم البيانات البديلة",
+
+            // Certifications
+            cert_eyebrow: "المؤهلات المهنية",
+            cert_h2: "الاعتماد <em>الاحترافي</em>",
+            cert_status_completed: "مكتمل",
+            cert_status_progress: "قيد المتابعة",
+            cert_1_h3: "قانون المالية المغربي والإطار الضريبي (IS)",
+            cert_1_p: "تم إثباته من خلال مشروع دراسة التأثير الضريبي",
+            cert_2_h3: "بايثون لعلوم البيانات",
+            cert_2_p: "تم إثباته من خلال أكثر من 4 مشاريع ذكاء اصطناعي",
+            cert_3_h3: "هندسة قواعد البيانات و SQL",
+            cert_3_p: "تم إثباته من خلال مسار مطابقة الحسابات البنكية",
+            cert_4_h3: "الوعي بمعايير التقارير الدولية (IFRS)",
+            cert_4_p: "تم إثباته من خلال التقارير والتحليلات المالية",
+            cert_5_h3: "مرشح لشهادة CFA المستوى الأول",
+            cert_5_p: "يستهدف أدواراً عليا في بنوك الاستثمار",
+            cert_6_h3: "FMVA® — محلل النمذجة والتقييم المالي",
+            cert_6_p: "معهد CFI · نمذجة القوائم المالية و DCF",
+            cert_7_h3: "محلل بيانات Power BI (PL-300)",
+            cert_7_p: "شهادة معتمدة من مايكروسوفت",
+            cert_8_h3: "AWS Cloud Practitioner",
+            cert_8_p: "نشر مسارات الذكاء الاصطناعي على السحابة",
+
+            // Contact
+            contact_eyebrow: "متاح لفرص العمل",
+            contact_h2: "لنقم ببناء <em>شيء حقيقي</em>",
+            contact_lead: "سواء كنت تبحث عن محلل مالي للشركات الكبرى، أو مهندس بيانات للتكنولوجيا المالية، أو بناء أنظمة تجمع بين <strong>المحاسبة والذكاء الاصطناعي</strong> — فأنا أقوم ببناء أنظمة جاهزة للإنتاج. متاح للعمل عن بُعد وللفرص الدولية.",
+            contact_label_email: "البريد الإلكتروني",
+            contact_label_phone: "الهاتف",
+            contact_label_location: "الموقع",
+            contact_location: "مكناس، المغرب · متاح للعمل عن بُعد",
+            contact_avail: "متاح حالياً للوظائف بدوام كامل والتعاقدات الاستشارية",
+            
+            // Footer
+            footer_role: "محلل مالي وبيانات · مطور ذكاء اصطناعي",
+            footer_location: "مكناس، المغرب",
+            footer_name: "محمد الزهر",
+            page_title: "محمد الزهر | محلل مالي · مهندس بيانات وذكاء اصطناعي · أتمتة المحاسبة",
+            meta_desc: "محمد الزهر — محلل مالي ومهندس ذكاء اصطناعي. الجمع بين نزاهة المحاسبة والذكاء المالي المدفوع بالذكاء الاصطناعي. بايثون · SQL · باور بي آي · نمذجة مالية.",
+            copyright: "© 2026 محمد الزهر",
+
+            // Tag Translations
+            tag_python: "بايثون",
+            tag_tensorflow: "تينسور فلو (TensorFlow)",
+            tag_pytorch: "باي تورش (PyTorch)",
+            tag_sql: "قواعد البيانات SQL",
+            tag_vba: "VBA / إكسيل المتقدم",
+            tag_pandas: "بانداس (Pandas)",
+            tag_numpy: "نامباي (NumPy)",
+            tag_sklearn: "سايكيت ليرن (Scikit-learn)",
+            tag_powerbi: "باور بي آي (PowerBI)",
+            tag_tableau: "تابلو (Tableau)",
+            tag_matplotlib: "مات بلوت ليب",
+            tag_seaborn: "سيبورن (Seaborn)",
+            tag_plotly: "بلوتلي (Plotly)",
+            tag_streamlit: "ستريم ليت (Streamlit)",
+            tag_pandas_prof: "تحليل البيانات التلقائي",
+            tag_fin_model: "النمذجة المالية",
+            tag_tax_plan: "التخطيط الضريبي (المغرب)",
+            tag_standards: "المعايير المحاسبية (IFRS/GAAP)",
+            tag_bank_recon: "مطابقة الحسابات البنكية",
+            tag_audit: "أطر التدقيق والمراجعة",
+            tag_fiscal_opt: "التحسين الضريبي",
+            tag_fpa: "أطر التخطيط والتحليل المالي",
+            tag_esg: "تقارير الاستدامة (ESG)",
+            tag_forensic: "تحليل البيانات الجنائي",
+            tag_ml: "الشبكات العصبية والترانسفورمرز",
+            tag_nlp: "معالجة اللغات الطبيعية (NLP)",
+            tag_vector: "البحث المتجهي (FAISS)",
+            tag_logic: "التفكير النقدي",
+            tag_geo: "التحليل الجيوسياسي",
+            tag_proto: "التواصل الاستراتيجي",
+            tag_dcf: "نمذجة التدفقات النقدية (DCF)",
+            tag_3statement: "نمذجة القوائم المالية الثلاث",
+            tag_lbo: "أساسيات الاستحواذ بالرافعة المالية",
+            tag_ebitda: "تقييم الشركات (EV/EBITDA)",
+            tag_scenario: "تحليل السيناريوهات",
+            tag_wcap: "تحليل رأس المال العامل",
+            tag_cloud: "السحابة (AWS / GCP)",
+            tag_db: "قواعد البيانات (PostgreSQL)",
+            tag_docker: "دوكر (Docker)",
+            tag_erp: "أنظمة ERP (SAP/Oracle)",
+            tag_snowflake: "سـنو فـليك (تعلم)",
+            tag_api: "برمجة الواجهات (FastAPI)",
+            tag_frontend: "واجهات أمامية حديثة",
+            role_1: "محلل مالي",
+            role_2: "مهندس ذكاء اصطناعي وبيانات",
+            role_3: "خبير أتمتة المحاسبة",
+            role_4: "محسن ثروة استراتيجي"
         }
     };
 
     function switchLanguage(lang) {
         const data = translations[lang];
+        if (!data) return;
+        
+        // Translate innerHTML
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (data[key]) {
@@ -365,16 +707,63 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Handle direction and language attribute
+        // Translate Title attributes
+        document.querySelectorAll('[data-i18n-title]').forEach(el => {
+            const key = el.getAttribute('data-i18n-title');
+            if (data[key]) {
+                el.setAttribute('title', data[key]);
+            }
+        });
+
+        // Translate Placeholder attributes
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (data[key]) {
+                el.setAttribute('placeholder', data[key]);
+            }
+        });
+
         document.documentElement.lang = lang;
         document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-        // Update active button state
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
         });
 
+        if (data.page_title) document.title = data.page_title;
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc && data.meta_desc) {
+            metaDesc.setAttribute('content', data.meta_desc);
+        }
+
         localStorage.setItem('preferred_lang', lang);
+
+        // Restart Typed.js with translated strings
+        initTyped(lang);
+    }
+
+    let typedInstance = null;
+    function initTyped(lang) {
+        if (typedInstance) typedInstance.destroy();
+        
+        const data = translations[lang];
+        const strings = [
+            data.role_1,
+            data.role_2,
+            data.role_3,
+            data.role_4
+        ];
+
+        if (document.querySelector('#typed-role')) {
+            typedInstance = new Typed('#typed-role', {
+                strings: strings,
+                typeSpeed: 50,
+                backSpeed: 30,
+                backDelay: 2000,
+                loop: true,
+                cursorChar: '|'
+            });
+        }
     }
 
     // Event listeners for lang buttons
@@ -400,10 +789,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Scroll Reveal for Gallery and Sections
-    const revealElements = document.querySelectorAll('.gallery-img, .detail-text h3, .tech-item');
+    const revealElements = document.querySelectorAll('.gallery-img, .detail-text h3, .tech-item, h2');
     const projectRevealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-init');
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
                 projectRevealObserver.unobserve(entry.target);
@@ -417,4 +807,96 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
         projectRevealObserver.observe(el);
     });
+
+    // --- Phase 2: Advanced Interactions ---
+
+    // 1. Custom Cursor Implementation
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorOutline = document.querySelector('.cursor-outline');
+
+    if (cursorDot && cursorOutline) {
+        let mouseX = 0, mouseY = 0;
+        let outlineX = 0, outlineY = 0;
+
+        window.addEventListener('mousemove', e => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            cursorDot.style.left = `${mouseX}px`;
+            cursorDot.style.top = `${mouseY}px`;
+        });
+
+        // Smooth Lerp for Cursor Outline
+        const animateCursor = () => {
+            outlineX += (mouseX - outlineX) * 0.15;
+            outlineY += (mouseY - outlineY) * 0.15;
+
+            cursorOutline.style.left = `${outlineX}px`;
+            cursorOutline.style.top = `${outlineY}px`;
+
+            requestAnimationFrame(animateCursor);
+        };
+        animateCursor();
+
+        // Cursor Hover Effects
+        const hoverTargets = document.querySelectorAll('a, button, .p-card, .sg-tag');
+        hoverTargets.forEach(target => {
+            target.addEventListener('mouseenter', () => {
+                cursorOutline.classList.add('hover');
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(0.5)';
+            });
+            target.addEventListener('mouseleave', () => {
+                cursorOutline.classList.remove('hover');
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+        });
+    }
+
+    // 2. Magnetic Button Effects
+    const magneticButtons = document.querySelectorAll('.btn-primary, .btn-secondary');
+    magneticButtons.forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0, 0)';
+        });
+    });
+
+    // 3. Scroll Progress Indicator
+    const scrollProgress = document.querySelector('.scroll-progress');
+    if (scrollProgress) {
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            scrollProgress.style.width = scrolled + "%";
+        }, { passive: true });
+    }
+
+    // 4. Hero Staggered Reveal
+    const heroElements = [
+        '.hero-job-eyebrow',
+        '.hero-name',
+        '.hero-divider',
+        '.hero-tagline-text',
+        '.hero-socials'
+    ];
+
+    heroElements.forEach((selector, i) => {
+        const el = document.querySelector(selector);
+        if (el) {
+            setTimeout(() => {
+                el.classList.add('reveal-init');
+            }, 300 + (i * 150));
+        }
+    });
+
+    // 5. Typed.js Role Cycling
+    initTyped(savedLang);
 });
